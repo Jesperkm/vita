@@ -1,4 +1,5 @@
-hejhejhej
+VITA Projekt
 ===
 
-her
+## Group Members
+Michael, Marie-Louise, Mads, Tony og Jesper.
