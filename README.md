@@ -1,4 +1,4 @@
 VITA
 =====
 
-Phonegap project.
+Phonegap project
