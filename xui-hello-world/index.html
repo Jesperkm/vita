@@ -12,12 +12,11 @@
 
   function onLoad() {
     var contentDiv = x$('#content');
-    var attributes = contentDiv[0].attributes; //
 
     if(attributes.length) {
       var attrMessage = '';
       attrMessage = '<h3>' + contentDiv[0].id + ' ' + contentDiv[0].localName + ' has ' + attributes.length + ' attributes:</h3>';
-      
+
       attrMessage += '<ul>';
 
       for(i=0; i<attributes.length;i++) {
