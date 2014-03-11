@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  <!-- http://stackoverflow.com/questions/19250910/viewport-argument-value-device-width-for-key-width-is-invalid-and-has-been -->
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>XUI</title>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/xuijs/2.3.2/xui.min.js"></script>
+  <script type="text/javascript">
+
+  x$(window).on('load', onLoad);
+
+  function onLoad() {
+    var strMessage = '';
+
+
+    x$( 'li' ).on( 'click', function(e) {
+      // x$(this).toggleClass('awesome');
+      if (x$(this).hasClass('active')) {
+        x$(this).removeClass('active');
+      }
+      else {
+        x$(this).addClass( 'active' );
+      }
+    });
+
+    var allFamily = x$('#family').find('li');
+    var maleFamily = allFamily.has('.active');
+    var femaleFamily = allFamily.has('.female');
+    strMessage += '<h1>Active</h1><ul><li id="maleFamily"></li></ul>';
+    // strMessage += '<h1>Inactive</h1><ul><li id="femaleFamily"></li></ul>';
+
+    var nameFunctions = {
+      generateList: function(array) {
+        var list ='';
+        array.each(function(element, index, xui) {
+          list += element.outerHTML;
+        });
+        this.bottom(list);
+      }
+    }
+
+    x$('#output').html(strMessage);
+
+    xui.extend(nameFunctions);
+    x$('#maleFamily').generateList(maleFamily);
+    x$('#femaleFamily').generateList(femaleFamily);
+  }
+  </script>
+</head>
+<body>
+  <ul id="family">
+    <li class="active">Ted (active)</li>
+    <li class="active">Molly</li>
+    <li class="female">Cate</li>
+    <li class="female">Jean</li>
+    <li class="active">George(active)</li>
+  </ul>
+
+  <div id="output"></div>
+</body>
+</html>
