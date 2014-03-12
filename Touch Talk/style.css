@@ -26,7 +26,6 @@ body, html {
 	width:1024px;
 	height:768px;
 	margin:0 auto;
-	border:5px solid #000;
 }
 
 /*=========================================
@@ -50,9 +49,6 @@ body, html {
 .column-1 ul li {
 	height:124px;
 	width:100%;
-}
-
-#one {
 }
 
 #one li {
@@ -108,6 +104,9 @@ body, html {
 
 #trashcan {
 	float:right;
+	height:100%;
+	width:100px;
+	background: #bada55;
 }
 
 #buttons {
@@ -121,7 +120,11 @@ body, html {
 	width:160.6px;
 	height:45px;
 	background:#9aa7ae;
-	margin:2px;
+	margin: 0 0 4px -2px;
+	display: inline-block;
+	text-align: center;
+	line-height: 45px;
+	font-weight: bold;
 }
 
 
