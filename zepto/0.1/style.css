@@ -57,6 +57,7 @@ body, html {
 
 #one li, #two li, #three li, #four li, #five li, #six li {
   margin: 5px;
+  color:#fff;
 }
 
 #one, #two, #three, #four, #five, #six {
@@ -69,6 +70,10 @@ body, html {
 
 #three li {
   background:#aadae6;
+  font-size:1.6em;
+  font-weight:bold;
+  text-align:center;
+  line-height: 125px;
 }
 
 #four li {
@@ -81,6 +86,10 @@ body, html {
 
 #six li {
   background:#5e3342;
+  font-size:4em;
+  font-weight:bold;
+  text-align:center;
+  line-height: 125px;
 }
 
 /*=====================================
@@ -90,7 +99,7 @@ body, html {
 #lower-content {
   width:1011px;
   height:104px;
-  background-color:#000;
+  background-color:#62727b;
   margin:0 5px 0 5px;
 }
 
@@ -107,7 +116,7 @@ body, html {
   height:94px;
   width:115px;
   margin: 5px 5px 5px 0;
-  background: #bada55;
+  background: #e1e3e6;
 }
 
 #buttons {
@@ -126,4 +135,5 @@ body, html {
   text-align: center;
   line-height: 45px;
   font-weight: bold;
+  color:#fff;
 }
