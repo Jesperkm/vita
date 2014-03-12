@@ -95,17 +95,18 @@ body, html {
 }
 
 #textfield {
-  width:830px;
+  width:715px;
   height:94px;
   float: left;
   background:#fff;
-  margin:5px;
+  margin:5px 0 5px 5px;
 }
 
 #trashcan {
-  float:right;
-  height:100%;
-  width:100px;
+  float:left;
+  height:94px;
+  width:115px;
+  margin: 5px 5px 5px 0;
   background: #bada55;
 }
 
