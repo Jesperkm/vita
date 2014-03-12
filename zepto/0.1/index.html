@@ -20,7 +20,7 @@
           // get word scope withing scope.
           var word = $(this).text();
           // add html to results
-          $('#results').append('<div class="' + word +' result" "><a href="#" class="item">X</a> ' + word + '</div>');
+          $('#textfield').append('<div class="' + word +' result" "><a href="#" class="item">X</a> ' + word + '</div>');
         });
         // click event for input field.
         $(document).on('click','#submit_word',function(){
@@ -30,7 +30,7 @@
           }
           else {
             // output string from input field.
-            $('#results').append('<div class="result" "><a href="#" class="item">X</a> ' + $('#addWord').val() + '</div>');
+            $('#textfield').append('<div class="result" "><a href="#" class="item">X</a> ' + $('#addWord').val() + '</div>');
           }
         });
         // remove word from result list.
@@ -122,8 +122,8 @@
 
   <div id="lower-content" >
 
-    <div id="results">
-      <div id="trashcan">TRASH</div>
+    <div id="textfield">
+      <div id="trashcan"></div>
     </div>
 
     <div id="buttons">

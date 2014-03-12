@@ -51,9 +51,6 @@ body, html {
   width:100%;
 }
 
-#one {
-}
-
 #one li {
   background:#13699a;
 }
@@ -97,7 +94,7 @@ body, html {
   margin:0 5px 0 5px;
 }
 
-#results {
+#textfield {
   width:830px;
   height:94px;
   float: left;
@@ -106,10 +103,10 @@ body, html {
 }
 
 #trashcan {
-  width: 160px;
   float:right;
-  height: 94px;
-  background: blue;
+  height:100%;
+  width:100px;
+  background: #bada55;
 }
 
 #buttons {
@@ -123,7 +120,11 @@ body, html {
   width:160.6px;
   height:45px;
   background:#9aa7ae;
-  margin:2px;
+  margin: 0 0 4px -2px;
+  display: inline-block;
+  text-align: center;
+  line-height: 45px;
+  font-weight: bold;
 }
 
 
