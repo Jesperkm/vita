@@ -80,9 +80,7 @@
           $('#resultsLetter').html('');
         });
         $(document).on('click','#backspace',function(){
-          for (var i = 0; i < s.length; i += 1) {
-            s.splice(-1, i);
-          }
+          s.splice(-1, 1);
           console.log(s);
         });
       }
