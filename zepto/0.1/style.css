@@ -26,7 +26,6 @@ body, html {
   width:1024px;
   height:768px;
   margin:0 auto;
-  border:5px solid #000;
 }
 
 /*=========================================
@@ -107,7 +106,10 @@ body, html {
 }
 
 #trashcan {
+  width: 160px;
   float:right;
+  height: 94px;
+  background: blue;
 }
 
 #buttons {
