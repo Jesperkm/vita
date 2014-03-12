@@ -24,16 +24,136 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
+        <title>Touch Talk</title>
+<script src="js/zepto.min.js"></script>
+  <script type="text/javascript">
+  Zepto(function($){
+
+    function getWord(){
+      // Check if input field is empty.
+      if ($('#addWord').val() == null) {
+        alert("skriv venligst en tekst");
+      }
+      else {
+        // Click event for the class word.
+        $('.btn-click').on('click', function(e){
+          // get word scope withing scope.
+          var word = $(this).text();
+          // add html to results
+          $('#textfield').append('<li class="' + word +' result" "><a href="#" class="item">X  ' + word + ' </a></li>');
+        });
+        // click event for input field.
+        $(document).on('click','#submit_word',function(){
+          if($('#addWord').val() == "") //
+          {
+            alert("skriv venligst en tekst");
+          }
+          else {
+            // output string from input field.
+            $('#textfield').append('<div class="result" "><a href="#" class="item">X ' + $('#addWord').val() + '</a></div>');
+          }
+        });
+        // remove word from result list.
+        $(document).on('click','.result',function(){
+          $(this).remove();
+        });
+        $(document).on('click','#trashcan',function(){
+          // remove all results.
+          $('.result').remove();
+        });
+      }
+    };
+
+    getWord();
+
+  })
+</script>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
+<div id="wrapper">
+<div id="content-wrap">
+<div style="display:none;">
+    <input type="text"  id="addWord" placeholder="Skriv din tekst her" />
+  <input id="submit_word"  type="submit" value="submit">
+  <input id="restart" type="submit" value="restart">
+</div>
+
+  <div id="top-content">
+    <div class="column-1" id="one">
+      <ul>
+        <li class="btn-click">Jeg</li>
+        <li class="btn-click">Familie</li>
+        <li class="btn-click">Sygeplejerske</li>
+        <li class="btn-click">Arbejde</li>
+        <li class="btn-click">Kæledyr</li>
+      </ul>
+    </div>
+
+    <div class="column-1" id="two">
+      <ul>
+        <li class="btn-click">1</li>
+        <li class="btn-click">2</li>
+        <li class="btn-click">3</li>
+        <li class="btn-click">4</li>
+        <li class="btn-click">5</li>
+      </ul>
+    </div>
+
+    <div class="column-1" id="three">
+      <ul>
+        <li class="btn-click">Sove</li>
+        <li class="btn-click">Snakke</li>
+        <li class="btn-click">Drikke</li>
+        <li class="btn-click">Klør</li>
+        <li class="btn-click">Har ondt</li>
+      </ul>
+    </div>
+
+    <div class="column-1" id="four">
+      <ul>
+        <li class="btn-click">Hoved</li>
+        <li class="btn-click">Overkrop</li>
+        <li class="btn-click">Underkrop</li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <div class="column-1" id="five">
+      <ul>
+        <li class="btn-click">Lys</li>
+        <li class="btn-click">Bog</li>
+        <li class="btn-click">TV</li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <div class="column-1" id="six">
+      <ul>
+        <li class="btn-click">+</li>
+        <li class="btn-click">-</li>
+        <li class="btn-click">?</li>
+        <li class="btn-click">!</li>
+        <li></li>
+      </ul>
+    </div>
+  </div> <!-- Top Content ends-->
+
+  <div id="lower-content" >
+
+    <ul id="textfield"></ul>
+    <a href="#"><div id="trashcan"></div></a>
+    <div id="buttons">
+      <ul>
+        <li>PAUSE</li>
+        <li>ABC</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">

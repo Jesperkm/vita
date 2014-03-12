@@ -40,55 +40,56 @@
       }
     };
 
-    // function getLetter(){
-    //   var s = [];
-    //   var string ='';
+    function getLetter(){
+      var s = [];
+      var string ='';
 
-    //   if (false) {
+      if (false) {
 
-    //   }
-    //   else {
-    //     $('.letter').on('click', function(e){
-    //       b = $(this).text();
-    //       s.push(this, b);
-    //       console.log(s);
-    //       var letter = $(this).text()
-    //       $('#resultsPreview').append('<div class="' + letter +' result" "><a href="#" class="item">X</a> ' + letter + '</div>');
+      }
+      else {
+        $('.letter').on('click', function(e){
+          b = $(this).text();
+          s.push(b);
+          console.log(s);
+          var letter = $(this).text()
+          $('#resultsPreview').append('<div class="' + letter +' result" "><a href="#" class="item">X</a> ' + letter + '</div>');
 
-    //     });
-    //     $(document).on('click','#letter',function(){
-    //       var word = [];
-    //       for (var i = 0; i < s.length; i += 2) {
-    //         s[i+1] && word.push(s[i + 1]);
-    //       }
-    //       a = word.join();
-    //       word = a.replace(/\,/g,'');
-    //       if(word.length === 0)
-    //       {
-    //         alert("empty")
-    //       }
-    //       else {
-    //         $('#resultsLetter').append('<div><a href="#" class="item">X</a> ' + word + '</div>');
-    //       }
-    //       s = [];
-    //       $('#resultsPreview').html(''); // clear preview letters
-    //     });
-    //     $(document).on('click','.item',function(){
-    //       $(this).parent().remove();
-    //     });
-    //     $(document).on('click','#clear',function(){
-    //       $('#resultsLetter').html('');
-    //     });
-    //     $(document).on('click','#backspace',function(){
-    //       for (var i = 0; i < s.length; i += 2) {
-    //         s.splice(-1, i+1);
-    //       }
-    //       console.log(s);
-    //     });
-    //   }
-    // };
+        });
+        $(document).on('click','#letter',function(){
+          var word = [];
+          for (var i = 0; i < s.length; i += 1) {
+            s[i] && word.push(s[i]);
+          }
+          a = word.join();
+          word = a.replace(/\,/g,'');
+          if(word.length === 0)
+          {
+            alert("empty")
+          }
+          else {
+            $('#resultsLetter').append('<div><a href="#" class="item">X</a> ' + word + '</div>');
+          }
+          s = [];
+          $('#resultsPreview').html(''); // clear preview letters
+        });
+        $(document).on('click','.item',function(){
+          $(this).parent().remove();
+        });
+        $(document).on('click','#clear',function(){
+          $('#resultsLetter').html('');
+        });
+        $(document).on('click','#backspace',function(){
+          for (var i = 0; i < s.length; i += 1) {
+            s.splice(-1, i);
+          }
+          console.log(s);
+        });
+      }
+    };
 
     getWord();
+    getLetter();
 
   })
 </script>
@@ -126,7 +127,7 @@
 
   <!-- The list of food is displayed in the following div -->
   <div id="results"></div>
-<!--   <ul>
+  <ul>
     <li class="letter">a</li>
     <li class="letter">b</li>
     <li class="letter">c</li>
@@ -141,7 +142,7 @@
   <input id="letter" type="submit" value="submit">
   <input id="backspace" type="submit" value="backspace">
   <input id="clear" type="submit" value="clear word">
-  <div id="output"></div> -->
+  <div id="output"></div>
 
 
 
