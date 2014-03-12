@@ -15,7 +15,7 @@
       }
       else {
         // Click event for the class word.
-        $('.word').on('click', function(e){
+        $('.word li').on('click', function(e){
           // get word scope withing scope.
           var word = $(this).text();
           // add html to results
@@ -49,37 +49,39 @@
 </script>
 </head>
 <body>
-  <ul>
-    <li class="word">Mig</li>
-    <li class="word">Læge</li>
-    <li class="word">Sygeplejerske</li>
-    <li class="word">Arbejde</li>
-    <li class="word">Familie</li>
+<div class="word">
+    <ul>
+    <li>Mig</li>
+    <li>Læge</li>
+    <li>Sygeplejerske</li>
+    <li>Arbejde</li>
+    <li>Familie</li>
   </ul>
 
   <ul>
-    <li class="word">:-D</li>
-    <li class="word">:-)</li>
-    <li class="word">:-|</li>
-    <li class="word">:-/</li>
-    <li class="word">:-(</li>
+    <li>:-D</li>
+    <li>:-)</li>
+    <li>:-|</li>
+    <li>:-/</li>
+    <li>:-(</li>
   </ul>
 
   <ul>
-    <li class="word">Klør</li>
-    <li class="word">Drikke</li>
-    <li class="word">Sulten</li>
-    <li class="word">Smerte</li>
-    <li class="word">Toilet</li>
+    <li>Klør</li>
+    <li>Drikke</li>
+    <li>Sulten</li>
+    <li>Smerte</li>
+    <li>Toilet</li>
   </ul>
 
   <ul>
-    <li class="word">Hoved</li>
-    <li class="word">Arme</li>
-    <li class="word">Overkrop</li>
-    <li class="word">Ryg</li>
-    <li class="word">Ben</li>
+    <li>Hoved</li>
+    <li>Arme</li>
+    <li>Overkrop</li>
+    <li>Ryg</li>
+    <li>Ben</li>
   </ul>
+</div>
 
   <input type="text"  id="addWord" placeholder="Skriv din tekst her" />
 
