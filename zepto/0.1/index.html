@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Touch Talk</title>
+<script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.3/zepto.min.js"></script>
+  <script type="text/javascript">
+  Zepto(function($){
+
+    function getWord(){
+      // Check if input field is empty.
+      if ($('#addWord').val() == null) {
+        alert("skriv venligst en tekst");
+      }
+      else {
+        // Click event for the class word.
+        $('.btn-click').on('click', function(e){
+          // get word scope withing scope.
+          var word = $(this).text();
+          // add html to results
+          $('#results').append('<div class="' + word +' result" "><a href="#" class="item">X</a> ' + word + '</div>');
+        });
+        // click event for input field.
+        $(document).on('click','#submit_word',function(){
+          if($('#addWord').val() == "") //
+          {
+            alert("skriv venligst en tekst");
+          }
+          else {
+            // output string from input field.
+            $('#results').append('<div class="result" "><a href="#" class="item">X</a> ' + $('#addWord').val() + '</div>');
+          }
+        });
+        // remove word from result list.
+        $(document).on('click','.result',function(){
+          $(this).remove();
+        });
+        $(document).on('click','#trashcan',function(){
+          // remove all results.
+          $('.result').remove();
+        });
+      }
+    };
+
+    getWord();
+
+  })
+</script>
+</head>
+<body>
+<div id="wrapper">
+<div id="content-wrap">
+<div style="display:none;">
+    <input type="text"  id="addWord" placeholder="Skriv din tekst her" />
+  <input id="submit_word"  type="submit" value="submit">
+  <input id="restart" type="submit" value="restart">
+</div>
+
+  <div id="top-content">
+    <div class="column-1" id="one">
+      <ul>
+        <li class="btn-click">Jeg</li>
+        <li class="btn-click">Familie</li>
+        <li class="btn-click">Sygeplejerske</li>
+        <li class="btn-click">Arbejde</li>
+        <li class="btn-click">Kæledyr</li>
+      </ul>
+    </div>
+
+    <div class="column-1" id="two">
+      <ul>
+        <li class="btn-click">1</li>
+        <li class="btn-click">2</li>
+        <li class="btn-click">3</li>
+        <li class="btn-click">4</li>
+        <li class="btn-click">5</li>
+      </ul>
+    </div>
+
+    <div class="column-1" id="three">
+      <ul>
+        <li class="btn-click">Sove</li>
+        <li class="btn-click">Snakke</li>
+        <li class="btn-click">Drikke</li>
+        <li class="btn-click">Klør</li>
+        <li class="btn-click">Har ondt</li>
+      </ul>
+    </div>
+
+    <div class="column-1" id="four">
+      <ul>
+        <li class="btn-click">Hoved</li>
+        <li class="btn-click">Overkrop</li>
+        <li class="btn-click">Underkrop</li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <div class="column-1" id="five">
+      <ul>
+        <li class="btn-click">Lys</li>
+        <li class="btn-click">Bog</li>
+        <li class="btn-click">TV</li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <div class="column-1" id="six">
+      <ul>
+        <li class="btn-click">+</li>
+        <li class="btn-click">-</li>
+        <li class="btn-click">?</li>
+        <li class="btn-click">!</li>
+        <li></li>
+      </ul>
+    </div>
+  </div> <!-- Top Content ends-->
+
+  <div id="lower-content" >
+
+    <div id="results">
+      <div id="trashcan">TRASH</div>
+    </div>
+
+    <div id="buttons">
+      <ul>
+        <li>PAUSE</li>
+        <li>ABC</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>
