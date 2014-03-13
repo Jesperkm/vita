@@ -101,6 +101,11 @@ a {
   margin:2px;
 }
 
+.column-1 img {
+  width:144.6px;
+  height:124px;
+}
+
 .column-1-k {
   width:141.4px;
   height: 650px;
@@ -113,7 +118,7 @@ a {
 }
 
 #one li {
-  background:#13699a;
+  background:#096167;
 }
 
 #one li, #two li, #three li, #four li, #five li, #six li {
@@ -126,31 +131,33 @@ a {
 }
 
 #two li {
-  background:#51a1cd;
+  background:#0C9478;
+  color:#fff;
+  font-size:1.5em;
+  font-weight:bold;
+  line-height:130px;
+  text-align:center;
 }
 
 #three li {
-  background:#aadae6;
-  font-size:1.6em;
-  font-weight:bold;
-  text-align:center;
-  line-height: 125px;
+  background:#74BE84;
 }
 
 #four li {
-  background:#e5bab5;
+  background:#54A1CD;
+  color:#fff;
+  font-size:1.5em;
+  font-weight:bold;
+  line-height:130px;
+  text-align:center;
 }
 
 #five li {
-  background:#cc535a;
+  background:#12699A;
 }
 
 #six li {
-  background:#5e3342;
-  font-size:4em;
-  font-weight:bold;
-  text-align:center;
-  line-height: 125px;
+  background:#34447F;
 }
 
 #one-k li, #two-k li, #three-k li, #four-k li, #five-k li, #six-k li, #seven-k li {
