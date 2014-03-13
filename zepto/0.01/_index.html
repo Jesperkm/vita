@@ -36,6 +36,7 @@
         });
         $(document).on('click','#restart',function(){
           $('.result').remove();
+          $('.item').remove();
         });
       }
     };
@@ -52,8 +53,8 @@
           b = $(this).text();
           s.push(b);
           console.log(s);
-          var letter = $(this).text()
-          $('#resultsPreview').append('<div class="' + letter +' result" "><a href="#" class="item">X</a> ' + letter + '</div>');
+          var letter = $(this).text();
+          $('#resultsPreview').append('<div class="' + letter +' result" "><a href="#" class="item"> ' + letter + '</a></div>');
 
         });
         $(document).on('click','#letter',function(){
@@ -61,16 +62,17 @@
           for (var i = 0; i < s.length; i += 1) {
             s[i] && word.push(s[i]);
           }
-          a = word.join();
-          word = a.replace(/\,/g,'');
+          a = word.join(); // join letters.
+          word = a.replace(/\,/g,''); // remove commas.
           if(word.length === 0)
           {
             alert("empty")
           }
           else {
-            $('#resultsLetter').append('<div><a href="#" class="item">X</a> ' + word + '</div>');
+            // $('#resultsLetter').append('<div><a href="#" class="item"> ' + word + '</a></div>');
+            $('#results').append('<div><a href="#" class="item"> ' + word + '</a></div>');
           }
-          s = [];
+          s = []; // Empty array.
           $('#resultsPreview').html(''); // clear preview letters
         });
         $(document).on('click','.item',function(){
@@ -81,6 +83,7 @@
         });
         $(document).on('click','#backspace',function(){
           s.splice(-1, 1);
+          $('#resultsPreview > div').eq(-1).remove();
           console.log(s);
         });
       }
@@ -132,7 +135,7 @@
     <li class="letter">d</li>
     <li class="letter">e</li>
   </ul>
-  <h1>Word</h1>
+
   <div id="resultsLetter"></div>
   <h1>Previw</h1>
   <div id="resultsPreview"></div>
