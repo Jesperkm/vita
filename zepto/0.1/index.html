@@ -6,13 +6,18 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes"> <!-- fullscreen ios -->
     <title>Touch Talk</title>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.3/zepto.min.js"></script>
+    <script src="zepto.min.js"></script>
     <script src="fastclick.js"></script>
     <script type="text/javascript">
 
   Zepto(function($){
 
-    FastClick.attach(document.body);
+    FastClick.attach(document.body); // remove 300ms delay.
+
+    // Disable overscroll / viewport moving on everything but scrollable divs
+     $('body').on('touchmove', function (e) {
+             if (!$('.overflow').has($(e.target)).length) e.preventDefault();
+     });
 
     $('a').click(function(e)
     {
@@ -95,13 +100,16 @@
           </div>
         </div> <!-- Top Content ends-->
         <div id="lower-content" class="p1"> <!--Lower Content Starts-->
-          <div class="column-1" id="one">
+          <div class="column-1 overflow" id="one">
             <ul>
               <li class="btn-click">Jeg</li>
-              <li class="btn-click">Familie</li>
+              <li class="btn-click">Læge</li>
               <li class="btn-click">Sygeplejerske</li>
               <li class="btn-click">Arbejde</li>
-              <li class="btn-click">Kæledyr</li>
+              <li class="btn-click">Familie</li>
+              <li class="btn-click">Input</li>
+              <li class="btn-click">Input</li>
+              <li class="btn-click">Input</li>
             </ul>
           </div>
           <div class="column-1" id="two">
@@ -154,59 +162,64 @@
           <div class="column-1-k" id="one-k">
             <ul>
               <li class="btn-click">A</li>
-              <li class="btn-click">B</li>
-              <li class="btn-click">C</li>
-              <li class="btn-click">D</li>
-              <li class="btn-click">E</li>
+              <li class="btn-click">G</li>
+              <li class="btn-click">M</li>
+              <li class="btn-click">S</li>
+              <li class="btn-click">Z</li>
             </ul>
           </div>
           <div class="column-1-k" id="two-k">
             <ul>
-              <li class="btn-click">F</li>
-              <li class="btn-click">G</li>
+              <li class="btn-click">B</li>
               <li class="btn-click">H</li>
-              <li class="btn-click">I</li>
-              <li class="btn-click">J</li>
+              <li class="btn-click">N</li>
+              <li class="btn-click">T</li>
+              <li class="btn-click">Æ</li>
             </ul>
           </div>
           <div class="column-1-k" id="three-k">
             <ul>
-              <li class="btn-click">K</li>
-              <li class="btn-click">L</li>
-              <li class="btn-click">M</li>
-              <li class="btn-click">N</li>
+              <li class="btn-click">C</li>
+              <li class="btn-click">I</li>
               <li class="btn-click">O</li>
+              <li class="btn-click">U</li>
+              <li class="btn-click">Ø</li>
             </ul>
           </div>
           <div class="column-1-k" id="four-k">
             <ul>
+              <li class="btn-click">D</li>
+              <li class="btn-click">J</li>
               <li class="btn-click">P</li>
-              <li class="btn-click">Q</li>
-              <li class="btn-click">R</li>
-              <li class="btn-click">S</li>
-              <li class="btn-click">T</li>
+              <li class="btn-click">V</li>
+              <li class="btn-click">Å</li>
             </ul>
           </div>
           <div class="column-1-k" id="five-k">
             <ul>
-              <li class="btn-click">U</li>
-              <li class="btn-click">V</li>
+              <li class="btn-click">E</li>
+              <li class="btn-click">K</li>
+              <li class="btn-click">Q</li>
               <li class="btn-click">X</li>
-              <li class="btn-click">Y</li>
-              <li class="btn-click">Z</li>
+              <li class="empty-list"></li>
             </ul>
           </div>
           <div class="column-1-k" id="six-k">
             <ul>
-              <li class="btn-click">Æ</li>
-              <li class="btn-click">Ø</li>
-              <li class="btn-click">Å</li>
-              <li id="empty-list"></li>
-              <li id="empty-list"></li>
+              <li class="btn-click">F</li>
+              <li class="btn-click">L</li>
+              <li class="btn-click">R</li>
+              <li class="btn-click">Y</li>
+              <li class="empty-list"></li>
             </ul>
           </div>
-           <div class="column-1-k" id="seven-k">
+           <div class="column-1-k overflow" id="seven-k">
             <ul>
+              <li class="btn-click">9</li>
+              <li class="btn-click">8</li>
+              <li class="btn-click">7</li>
+              <li class="btn-click">6</li>
+              <li class="btn-click">5</li>
               <li class="btn-click">4</li>
               <li class="btn-click">3</li>
               <li class="btn-click">2</li>
