@@ -8,10 +8,18 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.3/zepto.min.js"></script>
     <script src="fastclick.js"></script>
     <script type="text/javascript">
-    window.addEventListener('load', function() {
-        FastClick.attach(document.body);
-    }, false);
+
   Zepto(function($){
+
+    FastClick.attach(document.body);
+
+    $('a').click(function(e)
+    {
+        // Special stuff to do when this link is clicked...
+
+        // Cancel the default action
+        e.preventDefault();
+    });
 
     function getWord(){
       // Check if input field is empty.
@@ -208,7 +216,7 @@
             </ul>
           </div>
           </div> <!-- Lower Content ends-->
-  
+
       </div> <!-- Content Wrapper ends-->
     </div> <!-- Page Wrapper ends-->
       </div> <!-- Content Wrapper ends-->
