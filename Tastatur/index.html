@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Touch Talk</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.3/zepto.min.js"></script>
+    <script src="fastclick.min.js"></script>
+    <script type="text/javascript">
+    window.addEventListener('load', function() {
+        FastClick.attach(document.body);
+    }, false);
+  Zepto(function($){
+
+    function getWord(){
+      // Check if input field is empty.
+      if ($('#addWord').val() == null) {
+        alert("skriv venligst en tekst");
+      }
+      else {
+        // Click event for the class word.
+        $('.btn-click').on('click', function(e){
+          // get word scope withing scope.
+          var word = $(this).text();
+          // add html to results
+          $('#textfield').append('<li class="' + word +' result" "><a href="#" class="item">X  ' + word + ' </a></li>');
+        });
+        // click event for input field.
+        $(document).on('click','#submit_word',function(){
+          if($('#addWord').val() == "") //
+          {
+            alert("skriv venligst en tekst");
+          }
+          else {
+            // output string from input field.
+            $('#textfield').append('<div class="result" "><a href="#" class="item">X ' + $('#addWord').val() + '</a></div>');
+          }
+        });
+        // remove word from result list.
+        $(document).on('click','.result',function(){
+          $(this).remove();
+        });
+        $(document).on('click','#trashcan',function(){
+          // remove all results.
+          $('.result').remove();
+        });
+      }
+    };
+
+    getWord();
+
+  })
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="content-wrap">
+        <div style="display:none;">
+          <input type="text"  id="addWord" placeholder="Skriv din tekst her" />
+          <input id="submit_word"  type="submit" value="submit">
+          <input id="restart" type="submit" value="restart">
+        </div>
+        <div id="top-content" >
+          <ul id="textfield"></ul>
+          <a href="#"><div id="trashcan"></div></a>
+          <div id="buttons">
+            <ul>
+              <li>PAUSE</li>
+              <li>IKONER</li>
+            </ul>
+          </div>
+        </div> <!-- Top Content ends-->
+        <div id="lower-content">
+          <div class="column-1" id="one">
+            <ul>
+              <li class="btn-click">A</li>
+              <li class="btn-click">B</li>
+              <li class="btn-click">C</li>
+              <li class="btn-click">D</li>
+              <li class="btn-click">E</li>
+            </ul>
+          </div>
+          <div class="column-1" id="two">
+            <ul>
+              <li class="btn-click">F</li>
+              <li class="btn-click">G</li>
+              <li class="btn-click">H</li>
+              <li class="btn-click">I</li>
+              <li class="btn-click">J</li>
+            </ul>
+          </div>
+          <div class="column-1" id="three">
+            <ul>
+              <li class="btn-click">K</li>
+              <li class="btn-click">L</li>
+              <li class="btn-click">M</li>
+              <li class="btn-click">N</li>
+              <li class="btn-click">O</li>
+            </ul>
+          </div>
+          <div class="column-1" id="four">
+            <ul>
+              <li class="btn-click">P</li>
+              <li class="btn-click">Q</li>
+              <li class="btn-click">R</li>
+              <li class="btn-click">S</li>
+              <li class="btn-click">T</li>
+            </ul>
+          </div>
+          <div class="column-1" id="five">
+            <ul>
+              <li class="btn-click">U</li>
+              <li class="btn-click">V</li>
+              <li class="btn-click">X</li>
+              <li class="btn-click">Y</li>
+              <li class="btn-click">Z</li>
+            </ul>
+          </div>
+          <div class="column-1" id="six">
+            <ul>
+              <li class="btn-click">Æ</li>
+              <li class="btn-click">Ø</li>
+              <li class="btn-click">Å</li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+           <div class="column-1" id="seven">
+            <ul>
+              <li class="btn-click">4</li>
+              <li class="btn-click">3</li>
+              <li class="btn-click">2</li>
+              <li class="btn-click">1</li>
+              <li class="btn-click">0</li>
+            </ul>
+          </div>
+          </div> <!-- Lower Content ends-->
+  
+      </div> <!-- Content Wrapper ends-->
+    </div> <!-- Page Wrapper ends-->
+  </body>
+</html>
