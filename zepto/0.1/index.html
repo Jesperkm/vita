@@ -15,9 +15,32 @@
     FastClick.attach(document.body); // remove 300ms delay.
 
     // Disable overscroll / viewport moving on everything but scrollable divs
-     $('body').on('touchmove', function (e) {
-             if (!$('.overflow').has($(e.target)).length) e.preventDefault();
-     });
+     // $(document).on('touchmove', function (e) {
+     //         if (!$('.overflow').has($(e.target)).length) e.preventDefault();
+     // });
+
+      var selScrollable = '.overflow';
+      // Uses document because document will be topmost level in bubbling
+      $(document).on('touchmove',function(e){
+        e.preventDefault();
+      });
+      // Uses body because jQuery on events are called off of the element they are
+      // added to, so bubbling would not work if we used document instead.
+      $('body').on('touchstart', selScrollable, function(e) {
+        if (e.currentTarget.scrollTop === 0) {
+          e.currentTarget.scrollTop = 1;
+        } else if (e.currentTarget.scrollHeight === e.currentTarget.scrollTop + e.currentTarget.offsetHeight) {
+          e.currentTarget.scrollTop -= 1;
+        }
+      });
+      // Stops preventDefault from being called on document if it sees a scrollable div
+      $('body').on('touchmove', selScrollable, function(e) {
+        e.stopPropagation();
+      });
+
+      $('.overflow').on('pinch', function(event) {
+        event.gesture.preventDefault();
+      });
 
     $('a').click(function(e)
     {
@@ -102,7 +125,7 @@
         <div id="lower-content" class="p1"> <!--Lower Content Starts-->
           <div class="column-1 overflow" id="one">
             <ul>
-              <li class="btn-click"><img src="img/A/A1.jpg" alt="jeg" />Jeg</li>
+              <li><a class="btn-click" href="#"><img src="img/A/A1.jpg" alt="jeg" />Jeg</a></li>
               <li class="btn-click"><img src="img/A/A2.jpg" alt="jeg" />Sygeplejerske</li>
               <li class="btn-click"><img src="img/A/A3.jpg" alt="jeg" />Læge</li>
               <li class="btn-click"><img src="img/A/A4.jpg" alt="jeg" />Familie</li>

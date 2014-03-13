@@ -16,7 +16,9 @@ src: url(Interstate-Light.ttf);
 body, html {
   background-color:#fff;
   font-family: 'InterstateLight', arial, sans-serif;
+  height: 100%;
   overflow: hidden;
+  overflow-x: hidden;
 }
 
 a {
@@ -99,6 +101,7 @@ a {
   height: 650px;
   float: left;
   margin:2px;
+
 }
 
 .column-1 img {
@@ -190,4 +193,8 @@ background:#74BE84;
   -webkit-overflow-scrolling: touch;
    overflow: scroll; /* set overflow to scroll for desktop browsers */
    overflow-x: hidden; /* hide scrollbar on x-axis */
+}
+
+.overflow ul {
+  overflow: hidden; /* disable horizontal scrolling */
 }
