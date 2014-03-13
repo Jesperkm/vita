@@ -16,6 +16,7 @@ src: url(Interstate-Light.ttf);
 body, html {
   background-color:#fff;
   font-family: 'InterstateLight', arial, sans-serif;
+  overflow: hidden;
 }
 
 .clearfix {
@@ -157,10 +158,18 @@ body, html {
   background:#12699a;
 }
 
+#one-k li:hover, #two-k li:hover, #three-k li:hover, #four-k li:hover, #five-k li:hover, #six-k li:hover, #seven-k li:hover {
+background:#74BE84;
+}
+
 #seven-k li {
   background: #54A1CD;
 }
 
 .p2 {
   display: none;
+}
+
+#empty-list {
+  height: 125px;
 }
