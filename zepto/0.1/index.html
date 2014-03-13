@@ -45,6 +45,20 @@
           // remove all results.
           $('.result').remove();
         });
+        $(document).on('click','#abc',function(){
+          var toogleBtn = $("#abc").text();
+          console.log(toogleBtn);
+          if (toogleBtn == "IKONER") {
+            $(".p1").css("display","block");
+            $(".p2").css("display","none");
+            $("#abc").text("ABC");
+          }
+          else {
+            $(".p1").css("display","none");
+            $(".p2").css("display","block");
+            $("#abc").text("IKONER");
+          }
+        });
       }
     };
 
@@ -67,11 +81,11 @@
           <div id="buttons">
             <ul>
               <li>PAUSE</li>
-              <li>ABC</li>
+              <li id="abc">ABC</li>
             </ul>
           </div>
         </div> <!-- Top Content ends-->
-        <div id="lower-content"> <!--Lower Content Starts-->
+        <div id="lower-content" class="p1"> <!--Lower Content Starts-->
           <div class="column-1" id="one">
             <ul>
               <li class="btn-click">Jeg</li>
@@ -127,6 +141,76 @@
             </ul>
           </div>
           </div> <!-- Lower Content ends-->
+    <div id="wrapper">
+      <div id="content-wrap">
+        <div id="lower-content" class="p2">
+          <div class="column-1-k" id="one-k">
+            <ul>
+              <li class="btn-click">A</li>
+              <li class="btn-click">B</li>
+              <li class="btn-click">C</li>
+              <li class="btn-click">D</li>
+              <li class="btn-click">E</li>
+            </ul>
+          </div>
+          <div class="column-1-k" id="two-k">
+            <ul>
+              <li class="btn-click">F</li>
+              <li class="btn-click">G</li>
+              <li class="btn-click">H</li>
+              <li class="btn-click">I</li>
+              <li class="btn-click">J</li>
+            </ul>
+          </div>
+          <div class="column-1-k" id="three-k">
+            <ul>
+              <li class="btn-click">K</li>
+              <li class="btn-click">L</li>
+              <li class="btn-click">M</li>
+              <li class="btn-click">N</li>
+              <li class="btn-click">O</li>
+            </ul>
+          </div>
+          <div class="column-1-k" id="four-k">
+            <ul>
+              <li class="btn-click">P</li>
+              <li class="btn-click">Q</li>
+              <li class="btn-click">R</li>
+              <li class="btn-click">S</li>
+              <li class="btn-click">T</li>
+            </ul>
+          </div>
+          <div class="column-1-k" id="five-k">
+            <ul>
+              <li class="btn-click">U</li>
+              <li class="btn-click">V</li>
+              <li class="btn-click">X</li>
+              <li class="btn-click">Y</li>
+              <li class="btn-click">Z</li>
+            </ul>
+          </div>
+          <div class="column-1-k" id="six-k">
+            <ul>
+              <li class="btn-click">Æ</li>
+              <li class="btn-click">Ø</li>
+              <li class="btn-click">Å</li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+           <div class="column-1-k" id="seven-k">
+            <ul>
+              <li class="btn-click">4</li>
+              <li class="btn-click">3</li>
+              <li class="btn-click">2</li>
+              <li class="btn-click">1</li>
+              <li class="btn-click">0</li>
+            </ul>
+          </div>
+          </div> <!-- Lower Content ends-->
+  
+      </div> <!-- Content Wrapper ends-->
+    </div> <!-- Page Wrapper ends-->
       </div> <!-- Content Wrapper ends-->
     </div> <!-- Page Wrapper ends-->
   </body>
