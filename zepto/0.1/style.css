@@ -19,6 +19,8 @@ body, html {
   height: 100%;
   overflow: hidden;
   overflow-x: hidden;
+  -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+  -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
 }
 
 a {
