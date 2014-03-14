@@ -31,7 +31,8 @@ function nextEvent() {
         });
     }
 
-$('li').on('touchstart', this, nextEvent);
+$('.overflow li').on('touchstart', this, nextEvent);
+$('.column-1-k li').on('touchstart', this, nextEvent);
 
 
 function addWord() {
@@ -130,12 +131,19 @@ function addWord() {
           $(this).remove();
         });
         $(document).on('click','#trashcan',function(){
+          var $self = $(this);
+          $self.one('webkitAnimationEnd', function() {
+            $self.removeClass('pulse');
+          }).addClass('pulse');
           // remove all results.
           $('.result').remove();
         });
         $(document).on('touchstart','#abc',function(){
           var toogleBtn = $("#abc").text();
-          console.log(toogleBtn);
+          var $self = $(this);
+          $self.one('webkitAnimationEnd', function() {
+            $self.removeClass('pulse');
+          }).addClass('pulse');
           if (toogleBtn == "IKONER") {
             $(".p1").css("display","block");
             $(".p2").css("display","none");
