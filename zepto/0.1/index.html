@@ -106,14 +106,6 @@
         });
 
 
-        $(document).on('touchstart','#pause',function(){
-          // $(".p1").css("display","block").fadeIn();
-
-          $self.one('webkitAnimationEnd', function() {
-            $self.removeClass('pulse');
-          }).addClass('pulse');
-
-        }
         $(document).on('touchstart','#abc',function(){
           var toogleBtn = $("#abc").text();
           var $self = $(this);
@@ -178,7 +170,7 @@
     <a href="#"><div id="trashcan"><img src="img/slet.png" alt="trashcan" /></div></a>
     <div id="buttons">
       <ul>
-        <li id="pause">PAUSE</li>
+        <li>PAUSE</li>
         <li id="abc">ABC</li>
       </ul>
     </div>
@@ -320,7 +312,7 @@
           <li>K</li>
           <li>Q</li>
           <li>X</li>
-          <li div="space-btn"><img src="img/space-btn.png" alt="space button" />&nbsp;</li>
+          <li class="space-btn"><img src="img/space-btn.png" alt="space button" />&nbsp;</li>
         </ul>
       </div>
       <div class="column-1-k" id="six-k">
