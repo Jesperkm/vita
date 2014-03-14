@@ -114,6 +114,7 @@ a {
 .column-1 img {
   width:144.6px;
   height:124px;
+  margin-left:5px;
 }
 
 .column-1-k {
@@ -150,7 +151,7 @@ a {
 }
 
 #three li {
-  background:#74BE84;
+  background:#72b07f;
 }
 
 #four li {
