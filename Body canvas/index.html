@@ -43,13 +43,18 @@
 
         var img = new Image();
         img.src = "img/mand/reddot.png";
+
        	mathCanvas.onclick = function(event){
-            var x = Math.round(event.offsetX - img.width/2);
-            var y = Math.round(event.offsetY - img.height/2);
+            var x = event.offsetX;
+            var y = event.offsetY - (event.offsetY/2 + img.width/2);
+            // console.log(x);
+            // console.log(y);
+            console.log(event.offsetX);
             console.log(x);
-            console.log(img.width);
-            console.log(img.height);
-            ctx.drawImage(img,x,y);
+            console.log(event.offsetY);
+            // console.log(img.width);
+            // console.log(img.height);
+            ctx.drawImage(img,x,y,30,30);
             var x = 0;
             console.log(x);
         };
