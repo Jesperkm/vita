@@ -107,7 +107,7 @@ a {
 =========================================*/
 .column-1 {
   width:170.6px;
-  height: 620px;
+  height: 590px;
   float: left;
   margin:2px;
 
@@ -115,13 +115,14 @@ a {
 
 .column-1 img {
   width:144.6px;
-  height:124px;
+  height:104px;
   margin-left:5px;
+  margin-top:15px;
 }
 
 .column-1-k {
   width:141.4px;
-  height: 570px;
+  height: 590px;
   float: left;
   margin:2px;}
 
@@ -147,11 +148,6 @@ a {
 
 #two li {
   background:#0C9478;
-  color:#fff;
-  font-size:1.5em;
-  font-weight:bold;
-  line-height:130px;
-  text-align:center;
 }
 
 #three li {
@@ -160,11 +156,6 @@ a {
 
 #four li {
   background:#54A1CD;
-  color:#fff;
-  font-size:1.5em;
-  font-weight:bold;
-  line-height:130px;
-  text-align:center;
 }
 
 #five li {
@@ -181,7 +172,7 @@ a {
   font-size:5em;
   font-weight:bold;
   text-align:center;
-  line-height: 109px;
+  line-height: 114px;
   background:#12699a;
 }
 
