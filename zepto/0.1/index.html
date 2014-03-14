@@ -7,12 +7,16 @@
     <meta name="apple-mobile-web-app-capable" content="yes"> <!-- fullscreen ios -->
     <title>Touch Talk</title>
     <script src="zepto.min.js"></script>
+    <script src="zepto-touch.js"></script>
     <script src="fastclick.js"></script>
     <script type="text/javascript">
 
   Zepto(function($){
 
-    FastClick.attach(document.body); // remove 300ms delay.
+    $(function() {
+      FastClick.attach(document.body);  // remove 300ms delay.
+    });
+
 
     // Disable overscroll / viewport moving on everything but scrollable divs
      // $(document).on('touchmove', function (e) {
@@ -57,12 +61,61 @@
       }
       else {
         // Click event for the class word.
-        $('.btn-click').on('click', function(e){
-          // get word scope withing scope.
-          var word = $(this).text();
-          // add html to results
-          $('#textfield').append('<li class="' + word +' result" "><a href="#" class="item">' + word + ' </a></li>');
-        });
+        // $('.btn-click').on('click', function(e){
+        //   var $self = $(this);
+        //   $self.one('webkitAnimationEnd', function() {
+        //     $self.removeClass('pulse');
+        //   }).addClass('pulse');
+        //   // get word scope withing scope.
+        //   var word = $(this).text();
+        //   // add html to results
+        //   $('#textfield').append('<li class="' + word +' result" "><a href="javascript:void(0);" class="item">' + word + ' </a></li>');
+
+        // });
+// $(document).swipe(function(){
+//   alert("swipe");
+// });
+
+// $(document).swipeUp(function(){
+//   alert("swipeUp");
+// });
+
+// $(document).swipeDown(function(){
+//   alert("swipeDown");
+// });
+
+// $(document).swipeLeft(function(){
+//   alert("swipeLeft");
+// });
+
+// $(document).swipeRight(function(){
+//   alert("swipeRight");
+// });
+
+// $(document).tap(function(){
+//   alert("tap");
+// });
+
+          // $(document).on('touchstart click', '.btn-click', function(event){
+          $('.btn-click').tap(function(event){
+                  event.stopPropagation();
+                  event.preventDefault();
+                  if(event.handled !== true) {
+
+                  var $self = $(this);
+                  $self.one('webkitAnimationEnd', function() {
+                    $self.removeClass('pulse');
+                  }).addClass('pulse');
+                  // get word scope withing scope.
+                  var word = $(this).text();
+                  // add html to results
+                  $('#textfield').append('<li class="' + word +' result" "><a href="javascript:void(0);" class="item">' + word + ' </a></li>');
+
+                      event.handled = true;
+                  } else {
+                      return false;
+                  }
+          });
         // click event for input field.
         $(document).on('click','#submit_word',function(){
           if($('#addWord').val() == "") //
@@ -71,7 +124,7 @@
           }
           else {
             // output string from input field.
-            $('#textfield').append('<div class="result" "><a href="#" class="item">' + $('#addWord').val() + '</a></div>');
+            $('#textfield').append('<div class="result" "><a href="javascript:void(0);" class="item">' + $('#addWord').val() + '</a></div>');
           }
         });
         // remove word from result list.
@@ -82,7 +135,7 @@
           // remove all results.
           $('.result').remove();
         });
-        $(document).on('click','#abc',function(){
+        $(document).on('touchstart','#abc',function(){
           var toogleBtn = $("#abc").text();
           console.log(toogleBtn);
           if (toogleBtn == "IKONER") {
@@ -127,7 +180,7 @@
         <div id="lower-content" class="p1"> <!--Lower Content Starts-->
           <div class="column-1 overflow" id="one">
             <ul>
-              <li><a class="btn-click" href="#"><img src="img/A/A1.jpg" alt="jeg" />Jeg</a></li>
+              <li class="btn-click"><img src="img/A/A1.jpg" alt="jeg" />Jeg</li>
               <li class="btn-click"><img src="img/A/A2.jpg" alt="jeg" />Sygeplejerske</li>
               <li class="btn-click"><img src="img/A/A3.jpg" alt="jeg" />Læge</li>
               <li class="btn-click"><img src="img/A/A4.jpg" alt="jeg" />Familie</li>
