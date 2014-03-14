@@ -57,6 +57,7 @@ a {
   float: left;
   background:#fff;
   margin:5px 0 5px 5px;
+  overflow:hidden;
 }
 
 #trashcan {
