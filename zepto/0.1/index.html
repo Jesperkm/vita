@@ -17,33 +17,51 @@
       FastClick.attach(document.body);  // remove 300ms delay.
     });
 
+  canvasfoo();
+
+
     function nextEvent() {
 
     $(this).on('touchend', function(e){
-      $(this).addClass('btn-click');
-      addWord();
+      // event.stopPropagation();
+      // event.preventDefault();
+        var toogleBtn = $("#abc").text();
+        var w = $(this).text();
+        var prefixW = w.charAt(0);
+
+        var $self = $(this);
+        $self.one('webkitAnimationEnd', function() {
+          $self.removeClass('pulse');
+        }).addClass('pulse');
+
+                  // add html to results
+                  if (toogleBtn == "IKONER") {
+                    $('#textfield').append('<li class="' + w +' result" "><a href="#" class="item">' + w + ' </a></li>')
+                  }
+                  else {
+                    $('#textfield').append('<li class="' + w +' result" "><a href="#" class="item"><img src="img/'+prefixW+'/'+w+'.png" alt="jeg" /></a></li>');
+                  }
       $(this).off('touchend');
     });
     //behaviour for move
     $(this).on('touchmove', function(e){
-      $(this).removeClass('btn-click');
+      $('.main-body').on('swipe', function(){
+        $(".hbody").css("display","block");
+        $(".p1").css("display","none");
+        $(".p2").css("display","none");
+        $(".p3").css("display","none");
+      });
+      $('.hbody').on('swipe', function(){
+        $(".hbody").css("display","none");
+        $(".p1").css("display","block");
+        $(".p3").css("display","block");
+      });
       $(this).off('touchend');
     });
   }
 
   $('#lower-content li').on('touchstart', this, nextEvent);
-        canvasfoo();
-  $('#textfield').on('swipe', function(){
-      $(".hbody").css("display","block");
-      $(".p1").css("display","none");
-      $(".p2").css("display","none");
-      $(".p3").css("display","none");
-  });
-  $('.hbody').on('swipe', function(){
-      $(".hbody").css("display","none");
-      $(".p1").css("display","block");
-      $(".p3").css("display","block");
-  });
+
 
   function addWord() {
     $('.btn-click').on('tap longTap' , function(event){
@@ -211,6 +229,7 @@ var selScrollable = '.overflow';
 <body>
   <div id="wrapper">
     <div id="content-wrap">
+<div class="main-body">
       <div style="display:none;">
         <input type="text"  id="addWord" placeholder="Skriv din tekst her" />
         <input id="submit_word"  type="submit" value="submit">
@@ -365,7 +384,7 @@ var selScrollable = '.overflow';
             <li>K</li>
             <li>Q</li>
             <li>X</li>
-            <li class="empty-list"></li>
+            <li>&nbsp;</li>
           </ul>
         </div>
         <div class="column-1-k" id="six-k">
@@ -392,6 +411,7 @@ var selScrollable = '.overflow';
           </ul>
         </div>
       </div> <!-- Lower Content ends-->
+  </div>
       <div class="hbody">
         <div id="left-content">
           <div id="column-1-b">
