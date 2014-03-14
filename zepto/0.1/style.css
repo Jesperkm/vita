@@ -57,6 +57,7 @@ a {
   float: left;
   background:#fff;
   margin:5px 0 5px 5px;
+  overflow: hidden;
 }
 
 #trashcan {
@@ -327,7 +328,6 @@ li.result {
 
 #canvas {
   margin-top:5px;
-  background:url(img/mand/body.png) no-repeat;
 }
 .hbody {
   display: none;
