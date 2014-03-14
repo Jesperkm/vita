@@ -116,8 +116,11 @@ a {
 .column-1 img {
   width:144.6px;
   height:104px;
-  margin-left:5px;
-  margin-top:15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  padding-top: 12px;
 }
 
 .column-1-k {
@@ -159,7 +162,7 @@ a {
 }
 
 #five li {
-  background:#12699A;
+  background:#1a6490;
 }
 
 #six li {
