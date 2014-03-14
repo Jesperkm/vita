@@ -47,7 +47,26 @@ a {
   width:200px;
   height:768px;
   background:#236592;
+  float:left;
+  border:2px solid #000;
 }
+
+
+/*===========================================
+=            Right Content Start            =
+===========================================*/
+
+#right-content {
+  width:824px;
+  height:768px;
+  background:#236592;
+  float:left;
+}
+
+
+
+
+
 
 
 
