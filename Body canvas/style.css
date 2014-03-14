@@ -57,7 +57,9 @@ a {
   background:#fff;
   width:180px;
   margin:0 auto;
-  height:758px;
+  height:727px;
+  overflow:hidden;
+  margin-top:5px;
 }
 
 #left-content ul li {
