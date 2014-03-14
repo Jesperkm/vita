@@ -1,1 +1,3 @@
 *.cdncache
+*.json
+sftp-settings.*
