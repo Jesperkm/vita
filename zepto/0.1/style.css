@@ -196,7 +196,7 @@ background:#74BE84;
 }
 
 .empty-list {
-  height: 125px;
+  height: 119px;
   background:#bfc4c0 !important;
 }
 
@@ -240,5 +240,5 @@ background:#74BE84;
 li.result {
   display:inline;
   line-height:120px;
-  letter-spacing:-8px;
+  letter-spacing:-12px;
 }
