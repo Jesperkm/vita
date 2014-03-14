@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css" type="text/css" />
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta name="apple-mobile-web-app-capable" content="yes"> <!-- fullscreen ios -->
+  <link rel="stylesheet" href="style.css" type="text/css" />
   <title>Touch Talk</title>
   <script src="zepto.min.js"></script>
   <script src="fastclick.js"></script>
@@ -35,10 +35,10 @@
 
                   // add html to results
                   if (toogleBtn == "IKONER") {
-                    $('#textfield').append('<li class="' + w +' result" "><a href="#" class="item">' + w + ' </a></li>')
+                    $('#textfield').append('<li class="' + w +' result" "><a href="#" class="item">' + w + ' </a></li>').fadeIn();
                   }
                   else {
-                    $('#textfield').append('<li class="' + w +' result" "><a href="#" class="item"><img src="img/'+prefixW+'/'+w+'.png" alt="jeg" /></a></li>');
+                    $('#textfield').append('<li class="' + w +' result" "><a href="#" class="item"><img src="img/'+prefixW+'/'+w+'.png" alt="jeg" /></a></li>').fadeIn();
                   }
       $(this).off('touchend');
     });
