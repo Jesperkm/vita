@@ -123,8 +123,6 @@ a {
 }
 
 #canvas {
-  width:810px;
-  height:753px;
   margin-top:5px;
   background:url(img/mand/body.png) no-repeat;
 }
