@@ -148,10 +148,6 @@ a {
 #two li {
   background:#0C9478;
   color:#fff;
-  font-size:1.5em;
-  font-weight:bold;
-  line-height:130px;
-  text-align:center;
 }
 
 #three li {
@@ -161,10 +157,6 @@ a {
 #four li {
   background:#54A1CD;
   color:#fff;
-  font-size:1.5em;
-  font-weight:bold;
-  line-height:130px;
-  text-align:center;
 }
 
 #five li {
@@ -183,10 +175,6 @@ a {
   text-align:center;
   line-height: 119px;
   background:#12699a;
-}
-
-#one-k li:hover, #two-k li:hover, #three-k li:hover, #four-k li:hover, #five-k li:hover, #six-k li:hover, #seven-k li:hover {
-background:#74BE84;
 }
 
 #seven-k li {

@@ -31,8 +31,7 @@
     });
   }
 
-  $('.overflow li').on('touchstart', this, nextEvent);
-  $('.column-1-k li').on('touchstart', this, nextEvent);
+  $('#lower-content li').on('touchstart', this, nextEvent);
 
 
   function addWord() {
@@ -40,21 +39,20 @@
       event.stopPropagation();
       event.preventDefault();
       if(event.handled !== true) {
+        var toogleBtn = $("#abc").text();
+        var w = $(this).text();
+        var prefixW = w.charAt(0);
 
         var $self = $(this);
         $self.one('webkitAnimationEnd', function() {
           $self.removeClass('pulse');
         }).addClass('pulse');
-                  // get word scope withing scope.
-                  var toogleBtn = $("#abc").text();
-                  var word = $(this).text();
-                  var str = word.charAt(0);
                   // add html to results
                   if (toogleBtn == "IKONER") {
-                    $('#textfield').append('<li class="' + word +' result" "><a href="javascript:void(0);" class="item">' + word + ' </a></li>')
+                    $('#textfield').append('<li class="' + w +' result" "><a href="javascript:void(0);" class="item">' + w + ' </a></li>')
                   }
                   else {
-                    $('#textfield').append('<li class="' + word +' result" "><a href="javascript:void(0);" class="item"><img src="img/'+str+'/'+word+'.png" alt="jeg" /></a></li>');
+                    $('#textfield').append('<li class="' + w +' result" "><a href="javascript:void(0);" class="item"><img src="img/'+prefixW+'/'+w+'.png" alt="jeg" /></a></li>');
                   }
 
                   event.handled = true;
