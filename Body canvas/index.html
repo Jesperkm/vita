@@ -4,40 +4,56 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css" type="text/css" />
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes"> <!-- fullscreen ios -->
     <title>Touch Talk</title>
-  </head>
+  </head> 
 <body>
     <div id="wrapper">
       <div id="content-wrap">
 
 		<div id="left-content">
-			<div class="column-1-b">
+			<div id="column-1-b">
 	            <ul>
-	              <li>1</li>
-	              <li>2</li>
-	              <li>3</li>
-	              <li>4</li>
-	              <li>5</li>
-	              <li>6</li>
-	              <li>7</li>
-	              <li>8</li>
-	              <li>9</li>
-	              <li>10</li>
+	              <li id="ten-b">10</li>
+	              <li id="nine-b">9</li>
+	              <li id="eight-b">8</li>
+	              <li id="seven-b">7</li>
+	              <li id="six-b">6</li>
+	              <li id="five-b">5</li>
+	              <li id="four-b">4</li>
+	              <li id="three-b">3</li>
+	              <li id="two-b">2</li>
+	              <li id="one-b">1</li>
 	            </ul>
           	</div>
 		</div>
 
 		<div id="right-content">
+			<canvas id="canvas">
+			</canvas>
 		</div>
-
 
       </div>
   </div>
 </body>
 </html>
 
+<script>
+		var mathCanvas = document.getElementById("canvas");
+        var ctx = mathCanvas.getContext("2d");
 
+        var img = new Image();
+        img.src = "img/mand/reddot.png";
+       	mathCanvas.onclick = function(event){
+            var x = Math.round(event.offsetX - img.width/2);
+            var y = Math.round(event.offsetY - img.height/2);
+            console.log(x);
+            console.log(img.width);
+            console.log(img.height);
+            ctx.drawImage(img,x,y);
+            var x = 0;
+            console.log(x);
+        };
+</script>
 
 
 

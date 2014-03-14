@@ -48,10 +48,69 @@ a {
   height:768px;
   background:#236592;
   float:left;
-  border:2px solid #000;
 }
 
+/*=====================================
+=            Column 1 Body            =
+=====================================*/
+#column-1-b {
+  background:#fff;
+  width:180px;
+  margin:0 auto;
+  height:758px;
+}
 
+#left-content ul li {
+  display:block;
+  height:67px;
+  width:170px;
+  text-align:center;
+  margin:5px;
+  font-size:2em;
+  font-weight:bold;
+  line-height:70px;
+  color:#fff;
+}
+
+#one-b {
+  background: #568248;
+}
+
+#two-b {
+  background: #689852;
+}
+
+#three-b {
+  background: #8CAB51;
+}
+
+#four-b {
+  background: #B1C951;
+}
+
+#five-b {
+  background: #DED649;
+}
+
+#six-b {
+  background: #CDB654;
+}
+
+#seven-b {
+  background: #D49D4C;
+}
+
+#eight-b {
+  background: #C0773B;
+}
+
+#nine-b {
+  background: #A3392D;
+}
+
+#ten-b {
+  background: #8A2824;
+}
 /*===========================================
 =            Right Content Start            =
 ===========================================*/
@@ -61,6 +120,13 @@ a {
   height:768px;
   background:#236592;
   float:left;
+}
+
+#canvas {
+  width:810px;
+  height:753px;
+  margin-top:5px;
+  background:url(img/mand/body.png) no-repeat;
 }
 
 
