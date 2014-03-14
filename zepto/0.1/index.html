@@ -17,6 +17,45 @@
       FastClick.attach(document.body);  // remove 300ms delay.
     });
 
+function nextEvent() {
+    //behaviour for end
+    $(this).on('touchend', function(e){
+          $(this).addClass('btn-click');
+          addWord();
+        $(this).off('touchend');
+        });
+    //behaviour for move
+    $(this).on('touchmove', function(e){
+        $(this).removeClass('btn-click');
+        $(this).off('touchend');
+        });
+    }
+
+$('li').on('touchstart', this, nextEvent);
+
+
+function addWord() {
+  $('.btn-click').on('tap longTap' , function(event){
+    event.stopPropagation();
+    event.preventDefault();
+    if(event.handled !== true) {
+
+      var $self = $(this);
+      $self.one('webkitAnimationEnd', function() {
+        $self.removeClass('pulse');
+      }).addClass('pulse');
+                  // get word scope withing scope.
+                  var word = $(this).text();
+                  // add html to results
+                  $('#textfield').append('<li class="' + word +' result" "><a href="javascript:void(0);" class="item">' + word + ' </a></li>');
+
+                  event.handled = true;
+                } else {
+                  return false;
+                }
+              });
+}
+
 
     // Disable overscroll / viewport moving on everything but scrollable divs
      // $(document).on('touchmove', function (e) {
@@ -72,50 +111,9 @@
         //   $('#textfield').append('<li class="' + word +' result" "><a href="javascript:void(0);" class="item">' + word + ' </a></li>');
 
         // });
-// $(document).swipe(function(){
-//   alert("swipe");
-// });
-
-// $(document).swipeUp(function(){
-//   alert("swipeUp");
-// });
-
-// $(document).swipeDown(function(){
-//   alert("swipeDown");
-// });
-
-// $(document).swipeLeft(function(){
-//   alert("swipeLeft");
-// });
-
-// $(document).swipeRight(function(){
-//   alert("swipeRight");
-// });
-
-// $(document).tap(function(){
-//   alert("tap");
-// });
 
           // $(document).on('touchstart click', '.btn-click', function(event){
-          $('.btn-click').tap(function(event){
-                  event.stopPropagation();
-                  event.preventDefault();
-                  if(event.handled !== true) {
 
-                  var $self = $(this);
-                  $self.one('webkitAnimationEnd', function() {
-                    $self.removeClass('pulse');
-                  }).addClass('pulse');
-                  // get word scope withing scope.
-                  var word = $(this).text();
-                  // add html to results
-                  $('#textfield').append('<li class="' + word +' result" "><a href="javascript:void(0);" class="item">' + word + ' </a></li>');
-
-                      event.handled = true;
-                  } else {
-                      return false;
-                  }
-          });
         // click event for input field.
         $(document).on('click','#submit_word',function(){
           if($('#addWord').val() == "") //
@@ -180,164 +178,164 @@
         <div id="lower-content" class="p1"> <!--Lower Content Starts-->
           <div class="column-1 overflow" id="one">
             <ul>
-              <li class="btn-click"><img src="img/A/A1.jpg" alt="jeg" />Jeg</li>
-              <li class="btn-click"><img src="img/A/A2.jpg" alt="jeg" />Sygeplejerske</li>
-              <li class="btn-click"><img src="img/A/A3.jpg" alt="jeg" />Læge</li>
-              <li class="btn-click"><img src="img/A/A4.jpg" alt="jeg" />Familie</li>
-              <li class="btn-click"><img src="img/A/A5.jpg" alt="jeg" />Fysioterapeut</li>
-              <li class="btn-click"><img src="img/A/A6.jpg" alt="jeg" />Præst</li>
-              <li class="btn-click"><img src="img/A/A7.jpg" alt="jeg" />Arbejde</li>
-              <li class="btn-click"><img src="img/A/A8.jpg" alt="jeg" />Kæledyr</li>
+              <li><img src="img/A/A1.jpg" alt="jeg" />Jeg</li>
+              <li><img src="img/A/A2.jpg" alt="jeg" />Sygeplejerske</li>
+              <li><img src="img/A/A3.jpg" alt="jeg" />Læge</li>
+              <li><img src="img/A/A4.jpg" alt="jeg" />Familie</li>
+              <li><img src="img/A/A5.jpg" alt="jeg" />Fysioterapeut</li>
+              <li><img src="img/A/A6.jpg" alt="jeg" />Præst</li>
+              <li><img src="img/A/A7.jpg" alt="jeg" />Arbejde</li>
+              <li><img src="img/A/A8.jpg" alt="jeg" />Kæledyr</li>
             </ul>
           </div>
           <div class="column-1 overflow" id="two">
             <ul>
-              <li class="btn-click">Hvad</li>
-              <li class="btn-click">Hvor</li>
-              <li class="btn-click">Hvordan</li>
-              <li class="btn-click">Hvem</li>
-              <li class="btn-click">Hvornår</li>
-              <li class="btn-click">Hvilken</li>
+              <li>Hvad</li>
+              <li>Hvor</li>
+              <li>Hvordan</li>
+              <li>Hvem</li>
+              <li>Hvornår</li>
+              <li>Hvilken</li>
             </ul>
           </div>
           <div class="column-1 overflow" id="three">
             <ul>
-              <li class="btn-click"><img src="img/C/C1.jpg" alt="jeg" />Meget Glad</li>
-              <li class="btn-click"><img src="img/C/C2.jpg" alt="jeg" />Glad</li>
-              <li class="btn-click"><img src="img/C/C3.jpg" alt="jeg" />Okay</li>
-              <li class="btn-click"><img src="img/C/C4.jpg" alt="jeg" />Utilfreds</li>
-              <li class="btn-click"><img src="img/C/C5.jpg" alt="jeg" />Meget Utilfreds</li>
-              <li class="btn-click"><img src="img/C/C6.jpg" alt="jeg" />Sur</li>
-              <li class="btn-click"><img src="img/C/C7.jpg" alt="jeg" />Trist</li>
-              <li class="btn-click"><img src="img/C/C8.jpg" alt="jeg" />Forvirret</li>
-              <li class="btn-click"><img src="img/C/C9.jpg" alt="jeg" />Bange</li>
+              <li><img src="img/C/C1.jpg" alt="jeg" />Meget Glad</li>
+              <li><img src="img/C/C2.jpg" alt="jeg" />Glad</li>
+              <li><img src="img/C/C3.jpg" alt="jeg" />Okay</li>
+              <li><img src="img/C/C4.jpg" alt="jeg" />Utilfreds</li>
+              <li><img src="img/C/C5.jpg" alt="jeg" />Meget Utilfreds</li>
+              <li><img src="img/C/C6.jpg" alt="jeg" />Sur</li>
+              <li><img src="img/C/C7.jpg" alt="jeg" />Trist</li>
+              <li><img src="img/C/C8.jpg" alt="jeg" />Forvirret</li>
+              <li><img src="img/C/C9.jpg" alt="jeg" />Bange</li>
             </ul>
           </div>
           <div class="column-1 overflow" id="four">
             <ul>
-              <li class="btn-click">Er</li>
-              <li class="btn-click">Rask</li>
-              <li class="btn-click">Fremad</li>
-              <li class="btn-click">Smerte</li>
-              <li class="btn-click">Klør</li>
-              <li class="btn-click">Sket</li>
-              <li class="btn-click">Sove</li>
-              <li class="btn-click">Få luft</li>
-              <li class="btn-click">Snakke</li>
-              <li class="btn-click">Savne</li>
-              <li class="btn-click">Ensom</li>
-              <li class="btn-click">Hårdt</li>
-              <li class="btn-click">Varmt</li>
-              <li class="btn-click">Træne</li>
-              <li class="btn-click">Kvalme</li>
-              <li class="btn-click">Dø</li>
+              <li>Er</li>
+              <li>Rask</li>
+              <li>Fremad</li>
+              <li>Smerte</li>
+              <li>Klør</li>
+              <li>Sket</li>
+              <li>Sove</li>
+              <li>Få luft</li>
+              <li>Snakke</li>
+              <li>Savne</li>
+              <li>Ensom</li>
+              <li>Hårdt</li>
+              <li>Varmt</li>
+              <li>Træne</li>
+              <li>Kvalme</li>
+              <li>Dø</li>
             </ul>
           </div>
           <div class="column-1 overflow" id="five">
             <ul>
-              <li class="btn-click"><img src="img/E/E1.jpg" alt="jeg" />Dato</li>
-              <li class="btn-click"><img src="img/E/E2.jpg" alt="jeg" />Mad</li>
-              <li class="btn-click"><img src="img/E/E3.jpg" alt="jeg" />Respirator</li>
-              <li class="btn-click"><img src="img/E/E4.jpg" alt="jeg" />Tørstig</li>
-              <li class="btn-click"><img src="img/E/E5.jpg" alt="jeg" />Toilet</li>
-              <li class="btn-click"><img src="img/E/E6.jpg" alt="jeg" />Ting</li>
-              <li class="btn-click"><img src="img/E/E7.jpg" alt="jeg" />Seng</li>
-              <li class="btn-click"><img src="img/E/E8.jpg" alt="jeg" />Lys</li>
-              <li class="btn-click"><img src="img/E/E9.jpg" alt="jeg" />Lyd</li>
-              <li class="btn-click"><img src="img/E/E10.jpg" alt="jeg" />Bog</li>
-              <li class="btn-click"><img src="img/E/E11.jpg" alt="jeg" />Fjernsyn</li>
-              <li class="btn-click"><img src="img/E/E12.jpg" alt="jeg" />Besked</li>
-              <li class="btn-click"><img src="img/E/E13.jpg" alt="jeg" />Telefon</li>
-              <li class="btn-click"><img src="img/E/E14.jpg" alt="jeg" />Alkohol</li>
-              <li class="btn-click"><img src="img/E/E15.jpg" alt="jeg" />Mund</li>
-              <li class="btn-click"><img src="img/E/E16.jpg" alt="jeg" />Radio</li>
-              <li class="btn-click"><img src="img/E/E17.jpg" alt="jeg" />Pude</li>
-              <li class="btn-click"><img src="img/E/E18.jpg" alt="jeg" />Spil</li>
-              <li class="btn-click"><img src="img/E/E19.jpg" alt="jeg" />Tandbørste</li>
-              <li class="btn-click"><img src="img/E/E20.jpg" alt="jeg" />Billeder</li>
-              <li class="btn-click"><img src="img/E/E21.jpg" alt="jeg" />Vaske</li>
-              <li class="btn-click"><img src="img/E/E22.jpg" alt="jeg" />Barbering</li>
+              <li><img src="img/E/E1.jpg" alt="jeg" />Dato</li>
+              <li><img src="img/E/E2.jpg" alt="jeg" />Mad</li>
+              <li><img src="img/E/E3.jpg" alt="jeg" />Respirator</li>
+              <li><img src="img/E/E4.jpg" alt="jeg" />Tørstig</li>
+              <li><img src="img/E/E5.jpg" alt="jeg" />Toilet</li>
+              <li><img src="img/E/E6.jpg" alt="jeg" />Ting</li>
+              <li><img src="img/E/E7.jpg" alt="jeg" />Seng</li>
+              <li><img src="img/E/E8.jpg" alt="jeg" />Lys</li>
+              <li><img src="img/E/E9.jpg" alt="jeg" />Lyd</li>
+              <li><img src="img/E/E10.jpg" alt="jeg" />Bog</li>
+              <li><img src="img/E/E11.jpg" alt="jeg" />Fjernsyn</li>
+              <li><img src="img/E/E12.jpg" alt="jeg" />Besked</li>
+              <li><img src="img/E/E13.jpg" alt="jeg" />Telefon</li>
+              <li><img src="img/E/E14.jpg" alt="jeg" />Alkohol</li>
+              <li><img src="img/E/E15.jpg" alt="jeg" />Mund</li>
+              <li><img src="img/E/E16.jpg" alt="jeg" />Radio</li>
+              <li><img src="img/E/E17.jpg" alt="jeg" />Pude</li>
+              <li><img src="img/E/E18.jpg" alt="jeg" />Spil</li>
+              <li><img src="img/E/E19.jpg" alt="jeg" />Tandbørste</li>
+              <li><img src="img/E/E20.jpg" alt="jeg" />Billeder</li>
+              <li><img src="img/E/E21.jpg" alt="jeg" />Vaske</li>
+              <li><img src="img/E/E22.jpg" alt="jeg" />Barbering</li>
             </ul>
           </div>
           <div class="column-1 overflow" id="six">
             <ul>
-              <li class="btn-click"><img src="img/F/F1.jpg" alt="jeg" />?</li>
-              <li class="btn-click"><img src="img/F/F2.jpg" alt="jeg" />+</li>
-              <li class="btn-click"><img src="img/F/F3.jpg" alt="jeg" />-</li>
-              <li class="btn-click"><img src="img/F/F4.jpg" alt="jeg" />Høre</li>
-              <li class="btn-click"><img src="img/F/F5.jpg" alt="jeg" />Venstre</li>
-              <li class="btn-click"><img src="img/F/F6.jpg" alt="jeg" />!</li>
-              <li class="btn-click"><img src="img/F/F7.jpg" alt="jeg" />Cirkel</li>
+              <li><img src="img/F/F1.jpg" alt="jeg" />?</li>
+              <li><img src="img/F/F2.jpg" alt="jeg" />+</li>
+              <li><img src="img/F/F3.jpg" alt="jeg" />-</li>
+              <li><img src="img/F/F4.jpg" alt="jeg" />Høre</li>
+              <li><img src="img/F/F5.jpg" alt="jeg" />Venstre</li>
+              <li><img src="img/F/F6.jpg" alt="jeg" />!</li>
+              <li><img src="img/F/F7.jpg" alt="jeg" />Cirkel</li>
             </ul>
           </div>
           </div> <!-- Lower Content ends-->
         <div id="lower-content" class="p2">
           <div class="column-1-k" id="one-k">
             <ul>
-              <li class="btn-click">A</li>
-              <li class="btn-click">G</li>
-              <li class="btn-click">M</li>
-              <li class="btn-click">S</li>
-              <li class="btn-click">Z</li>
+              <li>A</li>
+              <li>G</li>
+              <li>M</li>
+              <li>S</li>
+              <li>Z</li>
             </ul>
           </div>
           <div class="column-1-k" id="two-k">
             <ul>
-              <li class="btn-click">B</li>
-              <li class="btn-click">H</li>
-              <li class="btn-click">N</li>
-              <li class="btn-click">T</li>
-              <li class="btn-click">Æ</li>
+              <li>B</li>
+              <li>H</li>
+              <li>N</li>
+              <li>T</li>
+              <li>Æ</li>
             </ul>
           </div>
           <div class="column-1-k" id="three-k">
             <ul>
-              <li class="btn-click">C</li>
-              <li class="btn-click">I</li>
-              <li class="btn-click">O</li>
-              <li class="btn-click">U</li>
-              <li class="btn-click">Ø</li>
+              <li>C</li>
+              <li>I</li>
+              <li>O</li>
+              <li>U</li>
+              <li>Ø</li>
             </ul>
           </div>
           <div class="column-1-k" id="four-k">
             <ul>
-              <li class="btn-click">D</li>
-              <li class="btn-click">J</li>
-              <li class="btn-click">P</li>
-              <li class="btn-click">V</li>
-              <li class="btn-click">Å</li>
+              <li>D</li>
+              <li>J</li>
+              <li>P</li>
+              <li>V</li>
+              <li>Å</li>
             </ul>
           </div>
           <div class="column-1-k" id="five-k">
             <ul>
-              <li class="btn-click">E</li>
-              <li class="btn-click">K</li>
-              <li class="btn-click">Q</li>
-              <li class="btn-click">X</li>
+              <li>E</li>
+              <li>K</li>
+              <li>Q</li>
+              <li>X</li>
               <li class="empty-list"></li>
             </ul>
           </div>
           <div class="column-1-k" id="six-k">
             <ul>
-              <li class="btn-click">F</li>
-              <li class="btn-click">L</li>
-              <li class="btn-click">R</li>
-              <li class="btn-click">Y</li>
+              <li>F</li>
+              <li>L</li>
+              <li>R</li>
+              <li>Y</li>
               <li class="empty-list"></li>
             </ul>
           </div>
            <div class="column-1-k overflow" id="seven-k">
             <ul>
-              <li class="btn-click">9</li>
-              <li class="btn-click">8</li>
-              <li class="btn-click">7</li>
-              <li class="btn-click">6</li>
-              <li class="btn-click">5</li>
-              <li class="btn-click">4</li>
-              <li class="btn-click">3</li>
-              <li class="btn-click">2</li>
-              <li class="btn-click">1</li>
-              <li class="btn-click">0</li>
+              <li>9</li>
+              <li>8</li>
+              <li>7</li>
+              <li>6</li>
+              <li>5</li>
+              <li>4</li>
+              <li>3</li>
+              <li>2</li>
+              <li>1</li>
+              <li>0</li>
             </ul>
           </div>
           </div> <!-- Lower Content ends-->
