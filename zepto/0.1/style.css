@@ -142,7 +142,7 @@ a {
 }
 
 #one, #two, #three, #four, #five, #six {
-  width:164.9px;
+  width:165.9px;
 }
 
 #two li {
@@ -243,4 +243,9 @@ li.result {
   display:inline;
   line-height:120px;
   letter-spacing:-12px;
+}
+
+#textfield li a img {
+  display:block;
+  margin:12px 0 0 10px;
 }
