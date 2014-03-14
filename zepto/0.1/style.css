@@ -46,14 +46,14 @@ a {
 =========================================*/
 #top-content {
   width:1011px;
-  height:104px;
+  height:134px;
   background-color:#62727b;
   margin:5px 5px 0 5px;
 }
 
 #textfield {
   width:715px;
-  height:94px;
+  height:124px;
   float: left;
   background:#fff;
   margin:5px 0 5px 5px;
@@ -61,7 +61,7 @@ a {
 
 #trashcan {
   float:left;
-  height:94px;
+  height:124px;
   width:115px;
   margin: 5px 5px 5px 0;
   background: #e1e3e6;
@@ -71,24 +71,24 @@ a {
   display:block;
   margin:0 auto;
   width:115px;
-  height:94px;
+  height:124px;
 }
 
 #buttons {
   width:160.6px;
-  height:94px;
+  height:124px;
   float: left;
   margin:5px;
 }
 
 #buttons li {
   width:160.6px;
-  height:45px;
+  height:60px;
   background:#9aa7ae;
   margin: 0 0 4px -2px;
   display: inline-block;
   text-align: center;
-  line-height: 45px;
+  line-height: 60px;
   font-weight: bold;
   color:#fff;
 }
@@ -107,7 +107,7 @@ a {
 =========================================*/
 .column-1 {
   width:170.6px;
-  height: 650px;
+  height: 620px;
   float: left;
   margin:2px;
 
@@ -116,11 +116,12 @@ a {
 .column-1 img {
   width:144.6px;
   height:124px;
+  margin-left:5px;
 }
 
 .column-1-k {
   width:141.4px;
-  height: 650px;
+  height: 620px;
   float: left;
   margin:2px;}
 
@@ -154,7 +155,7 @@ a {
 }
 
 #three li {
-  background:#74BE84;
+  background:#72b07f;
 }
 
 #four li {
@@ -180,7 +181,7 @@ a {
   font-size:5em;
   font-weight:bold;
   text-align:center;
-  line-height: 125px;
+  line-height: 119px;
   background:#12699a;
 }
 
@@ -198,6 +199,11 @@ background:#74BE84;
 
 .empty-list {
   height: 125px;
+  background:#bfc4c0 !important;
+}
+
+.empty-list:hover {
+  background:#bfc4c0 !important;
 }
 
 .overflow {
@@ -219,4 +225,22 @@ background:#74BE84;
   40% { -webkit-transform: scale3d(0.95,0.95,1); }
   70% { -webkit-transform: scale3d(1.05,1.05,1); }
   100% { -webkit-transform: scale3d(1,1,1); }
+}
+
+/*===============================
+=            Results            =
+===============================*/
+
+#textfield .item{
+  color:#000;
+  font-size:3em;
+  font-weight:bold;
+  display:inline-block;
+  text-indent:10px;
+}
+
+li.result {
+  display:inline;
+  line-height:120px;
+  letter-spacing:-8px;
 }
