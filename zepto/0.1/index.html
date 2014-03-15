@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta name="apple-mobile-web-app-capable" content="yes"> <!-- fullscreen ios -->
-
+  
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="style.css" type="text/css" />
 
   <title>Touch Talk</title>
@@ -55,7 +56,13 @@
       $(".p3").css("display","block");
       $("#abc").text("ABC");
       var p = $(this).text();
-      $('#textfield').append('<li class="' + p +' result" "><a href="#" class="item" style="color:red;">' + p + ' </a></li>');
+      var p = p.charAt(0);
+      if ($(this).hasClass('ten-b')) {
+        $('#textfield').append('<li class="' + p +' result" "><a href="#" class="item" style="color:red;">' + p + ' </a></li>');
+        $('#textfield').append('<li class="00 result" "><a href="#" class="item" style="color:red;">0</a></li>');
+      }
+      else {
+        $('#textfield').append('<li class="' + p +' result" "><a href="#" class="item" style="color:red;">' + p + ' </a></li>');      }
     });
     function nextEvent() {
       $(this).on('touchend', function(e){
@@ -374,7 +381,7 @@
         <div id="left-content">
           <div id="column-1-b">
             <ul>
-              <li id="ten-b">10</li>
+              <li id="ten-b" class="ten-b">10</li>
               <li id="nine-b">9</li>
               <li id="eight-b">8</li>
               <li id="seven-b">7</li>
