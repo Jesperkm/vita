@@ -18,18 +18,44 @@
       FastClick.attach(document.body);  // remove 300ms delay.
     });
 
-    canvasfoo();
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext("2d");
+
+    var img = new Image();
+    img.src = "img/Mand/reddot.png";
+
+    var body = new Image();
+    body.src = "img/Mand/body.png";
+
+    var callback = function(image) {
+     if(!image) image = this;
+     context.drawImage(body, 0, 0);
+
+     $('#canvas').on('touchstart click',function(event){
+      var x = Math.round(event.offsetX - img.width/2);
+      var y = Math.round(event.offsetY - img.height/2);
+      context.drawImage(img,x,y);
+    });
+   }
+
+            if(img.complete) { //check if image was already loaded by the browser
+             callback(body);
+           }else {
+             body.onload = callback;
+           }
     $('.main-body').on('swipe', function(){
       $(".hbody").css("display","block");
       $(".p1").css("display","none");
       $(".p2").css("display","none");
       $(".p3").css("display","none");
     });
-    $('.hbody').on('swipe', function(){
+    $('.hbody li').on('touchstart', function(){
       $(".hbody").css("display","none");
       $(".p1").css("display","block");
       $(".p3").css("display","block");
       $("#abc").text("ABC");
+      var p = $(this).text();
+      $('#textfield').append('<li class="' + p +' result" "><a href="#" class="item" style="color:red;">' + p + ' </a></li>');
     });
     function nextEvent() {
       $(this).on('touchend', function(e){
@@ -97,6 +123,8 @@
           $(this).remove();
         });
         $(document).on('tap','#trashcan',function(){
+          context.clearRect(0, 0, canvas.width, canvas.height);
+          context.drawImage(body, 0, 0);
           $('.result').remove();
           var $self = $(this);
           $self.one('webkitAnimationEnd', function() {
@@ -126,241 +154,243 @@
           }
         });
 
-        function canvasfoo() {
-          var canvas = document.getElementById('canvas');
-          var context = canvas.getContext("2d");
+        $(document).on('touchstart','.pause',function(){
+          var tooglePsBtn = $(".pause").text();
+          var $self = $(this);
 
-          var img = new Image();
-          img.src = "img/Mand/reddot.png";
+          $self.one('webkitAnimationEnd', function() {
+            $self.removeClass('pulse');
+          }).addClass('pulse');
 
-          var body = new Image();
-          body.src = "img/Mand/body.png";
+          if (tooglePsBtn == "TILBAGE") {
+            $("#wrapper").css("background-color","#fff");
+            $(".overlay").css("display","none");
+            $(".p1").css("display","block");
+            $(".p3").css("display","block");
+            $(".pause").text("Pause");
+            $("#abc").text("ABC");
+            $("#abc").css("display","block");
+          }
+          else {
+            $("#wrapper").css("background-color","#333333");
+            $(".p1").css("display","none");
+            $(".p2").css("display","none");
+            $(".p3").css("display","block");
+            $(".pause").text("TILBAGE");
+            $("#abc").css("display","none");
+          }
+        });
 
-          var callback = function(image) {
-           if(!image) image = this;
-           context.drawImage(body, 0, 0);
 
-           $('#canvas').on('touchstart click',function(event){
-            var x = Math.round(event.offsetX - img.width/2);
-            var y = Math.round(event.offsetY - img.height/2);
-            context.drawImage(img,x,y);
-          });
-         }
 
-      if(img.complete) { //check if image was already loaded by the browser
-       callback(body);
-     }else {
-       body.onload = callback;
-     }
-   }
- })
+       })
 </script>
 </head>
 <body>
-<div id="wrapper">
-  <div id="content-wrap">
-    <div class="main-body">
-      <div style="display:none;">
-        <input type="text"  id="addWord" placeholder="Skriv din tekst her" />
-        <input id="submit_word"  type="submit" value="submit">
-        <input id="restart" type="submit" value="restart">
+  <div id="wrapper">
+    <div id="content-wrap">
+      <div class="main-body">
+        <div style="display:none;">
+          <input type="text"  id="addWord" placeholder="Skriv din tekst her" />
+          <input id="submit_word"  type="submit" value="submit">
+          <input id="restart" type="submit" value="restart">
+        </div>
+        <div id="top-content" class="p3"> <!-- Top Content Starts-->
+          <ul id="textfield"></ul>
+          <a href="#"><div id="trashcan"><img src="img/slet.png" alt="trashcan" /></div></a>
+          <div id="buttons">
+            <ul>
+              <li class="pause">PAUSE</li>
+              <li id="abc">ABC</li>
+            </ul>
+          </div>
+        </div> <!-- Top Content ends-->
+        <div id="lower-content" class="p1"> <!--Lower Content Starts-->
+          <div class="column-1 overflow" id="one">
+            <ul>
+              <li><img src="img/A/A1.png" alt="jeg" />A1</li>
+              <li><img src="img/A/A2.png" alt="jeg" />A2</li>
+              <li><img src="img/A/A3.png" alt="jeg" />A3</li>
+              <li><img src="img/A/A4.png" alt="jeg" />A4</li>
+              <li><img src="img/A/A5.png" alt="jeg" />A5</li>
+              <li><img src="img/A/A6.png" alt="jeg" />A6</li>
+              <li><img src="img/A/A7.png" alt="jeg" />A7</li>
+              <li><img src="img/A/A8.png" alt="jeg" />A8</li>
+            </ul>
+          </div>
+          <div class="column-1 overflow" id="two">
+            <ul>
+              <li><img src="img/B/B1.png" alt="jeg" />B1</li>
+              <li><img src="img/B/B2.png" alt="jeg" />B2</li>
+              <li><img src="img/B/B3.png" alt="jeg" />B3</li>
+              <li><img src="img/B/B4.png" alt="jeg" />B4</li>
+              <li><img src="img/B/B5.png" alt="jeg" />B5</li>
+              <li><img src="img/B/B6.png" alt="jeg" />B6</li>
+            </ul>
+          </div>
+          <div class="column-1 overflow" id="three">
+            <ul>
+              <li><img src="img/C/C1.png" alt="jeg" />C1</li>
+              <li><img src="img/C/C2.png" alt="jeg" />C2</li>
+              <li><img src="img/C/C3.png" alt="jeg" />C3</li>
+              <li><img src="img/C/C4.png" alt="jeg" />C4</li>
+              <li><img src="img/C/C5.png" alt="jeg" />C5</li>
+              <li><img src="img/C/C6.png" alt="jeg" />C6</li>
+              <li><img src="img/C/C7.png" alt="jeg" />C7</li>
+              <li><img src="img/C/C8.png" alt="jeg" />C8</li>
+              <li><img src="img/C/C9.png" alt="jeg" />C9</li>
+            </ul>
+          </div>
+          <div class="column-1 overflow" id="four">
+            <ul>
+              <li><img src="img/D/D1.png" alt="jeg" />D1</li>
+              <li><img src="img/D/D2.png" alt="jeg" />D2</li>
+              <li><img src="img/D/D3.png" alt="jeg" />D3</li>
+              <li><img src="img/D/D4.png" alt="jeg" />D4</li>
+              <li><img src="img/D/D5.png" alt="jeg" />D5</li>
+              <li><img src="img/D/D6.png" alt="jeg" />D6</li>
+              <li><img src="img/D/D7.png" alt="jeg" />D7</li>
+              <li><img src="img/D/D8.png" alt="jeg" />D8</li>
+              <li><img src="img/D/D9.png" alt="jeg" />D9</li>
+              <li><img src="img/D/D10.png" alt="jeg" />D10</li>
+              <li><img src="img/D/D11.png" alt="jeg" />D11</li>
+              <li><img src="img/D/D12.png" alt="jeg" />D12</li>
+              <li><img src="img/D/D13.png" alt="jeg" />D13</li>
+              <li><img src="img/D/D14.png" alt="jeg" />D14</li>
+              <li><img src="img/D/D15.png" alt="jeg" />D15</li>
+              <li><img src="img/D/D16.png" alt="jeg" />D16</li>
+            </ul>
+          </div>
+          <div class="column-1 overflow" id="five">
+            <ul>
+              <li><img src="img/E/E1.png" alt="jeg" />E1</li>
+              <li><img src="img/E/E2.png" alt="jeg" />E2</li>
+              <li><img src="img/E/E3.png" alt="jeg" />E3</li>
+              <li><img src="img/E/E4.png" alt="jeg" />E4</li>
+              <li><img src="img/E/E5.png" alt="jeg" />E5</li>
+              <li><img src="img/E/E6.png" alt="jeg" />E6</li>
+              <li><img src="img/E/E7.png" alt="jeg" />E7</li>
+              <li><img src="img/E/E8.png" alt="jeg" />E8</li>
+              <li><img src="img/E/E9.png" alt="jeg" />E9</li>
+              <li><img src="img/E/E10.png" alt="jeg" />E10</li>
+              <li><img src="img/E/E11.png" alt="jeg" />E11</li>
+              <li><img src="img/E/E12.png" alt="jeg" />E12</li>
+              <li><img src="img/E/E13.png" alt="jeg" />E13</li>
+              <li><img src="img/E/E14.png" alt="jeg" />E14</li>
+              <li><img src="img/E/E15.png" alt="jeg" />E15</li>
+              <li><img src="img/E/E16.png" alt="jeg" />E16</li>
+              <li><img src="img/E/E17.png" alt="jeg" />E17</li>
+              <li><img src="img/E/E18.png" alt="jeg" />E18</li>
+              <li><img src="img/E/E19.png" alt="jeg" />E19</li>
+              <li><img src="img/E/E20.png" alt="jeg" />E20</li>
+              <li><img src="img/E/E21.png" alt="jeg" />E21</li>
+              <li><img src="img/E/E22.png" alt="jeg" />E22</li>
+            </ul>
+          </div>
+          <div class="column-1 overflow" id="six">
+            <ul>
+              <li><img src="img/F/F1.png" alt="jeg" />F1</li>
+              <li><img src="img/F/F2.png" alt="jeg" />F2</li>
+              <li><img src="img/F/F3.png" alt="jeg" />F3</li>
+              <li><img src="img/F/F4.png" alt="jeg" />F4</li>
+              <li><img src="img/F/F5.png" alt="jeg" />F5</li>
+              <li><img src="img/F/F6.png" alt="jeg" />F6</li>
+              <li><img src="img/F/F7.png" alt="jeg" />F7</li>
+            </ul>
+          </div>
+        </div> <!-- Lower Content ends-->
+        <div id="lower-content" class="p2">
+          <div class="column-1-k" id="one-k">
+            <ul>
+              <li>A</li>
+              <li>G</li>
+              <li>M</li>
+              <li>S</li>
+              <li>Z</li>
+            </ul>
+          </div>
+          <div class="column-1-k" id="two-k">
+            <ul>
+              <li>B</li>
+              <li>H</li>
+              <li>N</li>
+              <li>T</li>
+              <li>Æ</li>
+            </ul>
+          </div>
+          <div class="column-1-k" id="three-k">
+            <ul>
+              <li>C</li>
+              <li>I</li>
+              <li>O</li>
+              <li>U</li>
+              <li>Ø</li>
+            </ul>
+          </div>
+          <div class="column-1-k" id="four-k">
+            <ul>
+              <li>D</li>
+              <li>J</li>
+              <li>P</li>
+              <li>V</li>
+              <li>Å</li>
+            </ul>
+          </div>
+          <div class="column-1-k" id="five-k">
+            <ul>
+              <li>E</li>
+              <li>K</li>
+              <li>Q</li>
+              <li>X</li>
+              <li class="space-btn"><img src="img/space-btn.png" alt="space button" />&nbsp;</li>
+            </ul>
+          </div>
+          <div class="column-1-k" id="six-k">
+            <ul>
+              <li>F</li>
+              <li>L</li>
+              <li>R</li>
+              <li>Y</li>
+              <li class="empty-list"></li>
+            </ul>
+          </div>
+          <div class="column-1-k overflow" id="seven-k">
+            <ul>
+              <li>9</li>
+              <li>8</li>
+              <li>7</li>
+              <li>6</li>
+              <li>5</li>
+              <li>4</li>
+              <li>3</li>
+              <li>2</li>
+              <li>1</li>
+              <li>0</li>
+            </ul>
+          </div>
+        </div> <!-- Lower Content ends-->
       </div>
-      <div id="top-content" class="p3"> <!-- Top Content Starts-->
-    <ul id="textfield"></ul>
-    <a href="#"><div id="trashcan"><img src="img/slet.png" alt="trashcan" /></div></a>
-    <div id="buttons">
-      <ul>
-        <li>PAUSE</li>
-        <li id="abc">ABC</li>
-      </ul>
-    </div>
-    </div> <!-- Top Content ends-->
-    <div id="lower-content" class="p1"> <!--Lower Content Starts-->
-    <div class="column-1 overflow" id="one">
-      <ul>
-        <li><img src="img/A/A1.png" alt="jeg" />A1</li>
-        <li><img src="img/A/A2.png" alt="jeg" />A2</li>
-        <li><img src="img/A/A3.png" alt="jeg" />A3</li>
-        <li><img src="img/A/A4.png" alt="jeg" />A4</li>
-        <li><img src="img/A/A5.png" alt="jeg" />A5</li>
-        <li><img src="img/A/A6.png" alt="jeg" />A6</li>
-        <li><img src="img/A/A7.png" alt="jeg" />A7</li>
-        <li><img src="img/A/A8.png" alt="jeg" />A8</li>
-      </ul>
-    </div>
-    <div class="column-1 overflow" id="two">
-      <ul>
-        <li><img src="img/B/B1.png" alt="jeg" />B1</li>
-        <li><img src="img/B/B2.png" alt="jeg" />B2</li>
-        <li><img src="img/B/B3.png" alt="jeg" />B3</li>
-        <li><img src="img/B/B4.png" alt="jeg" />B4</li>
-        <li><img src="img/B/B5.png" alt="jeg" />B5</li>
-        <li><img src="img/B/B6.png" alt="jeg" />B6</li>
-      </ul>
-    </div>
-    <div class="column-1 overflow" id="three">
-      <ul>
-        <li><img src="img/C/C1.png" alt="jeg" />C1</li>
-        <li><img src="img/C/C2.png" alt="jeg" />C2</li>
-        <li><img src="img/C/C3.png" alt="jeg" />C3</li>
-        <li><img src="img/C/C4.png" alt="jeg" />C4</li>
-        <li><img src="img/C/C5.png" alt="jeg" />C5</li>
-        <li><img src="img/C/C6.png" alt="jeg" />C6</li>
-        <li><img src="img/C/C7.png" alt="jeg" />C7</li>
-        <li><img src="img/C/C8.png" alt="jeg" />C8</li>
-        <li><img src="img/C/C9.png" alt="jeg" />C9</li>
-      </ul>
-    </div>
-    <div class="column-1 overflow" id="four">
-      <ul>
-        <li><img src="img/D/D1.png" alt="jeg" />D1</li>
-        <li><img src="img/D/D2.png" alt="jeg" />D2</li>
-        <li><img src="img/D/D3.png" alt="jeg" />D3</li>
-        <li><img src="img/D/D4.png" alt="jeg" />D4</li>
-        <li><img src="img/D/D5.png" alt="jeg" />D5</li>
-        <li><img src="img/D/D6.png" alt="jeg" />D6</li>
-        <li><img src="img/D/D7.png" alt="jeg" />D7</li>
-        <li><img src="img/D/D8.png" alt="jeg" />D8</li>
-        <li><img src="img/D/D9.png" alt="jeg" />D9</li>
-        <li><img src="img/D/D10.png" alt="jeg" />D10</li>
-        <li><img src="img/D/D11.png" alt="jeg" />D11</li>
-        <li><img src="img/D/D12.png" alt="jeg" />D12</li>
-        <li><img src="img/D/D13.png" alt="jeg" />D13</li>
-        <li><img src="img/D/D14.png" alt="jeg" />D14</li>
-        <li><img src="img/D/D15.png" alt="jeg" />D15</li>
-        <li><img src="img/D/D16.png" alt="jeg" />D16</li>
-      </ul>
-    </div>
-    <div class="column-1 overflow" id="five">
-      <ul>
-        <li><img src="img/E/E1.png" alt="jeg" />E1</li>
-        <li><img src="img/E/E2.png" alt="jeg" />E2</li>
-        <li><img src="img/E/E3.png" alt="jeg" />E3</li>
-        <li><img src="img/E/E4.png" alt="jeg" />E4</li>
-        <li><img src="img/E/E5.png" alt="jeg" />E5</li>
-        <li><img src="img/E/E6.png" alt="jeg" />E6</li>
-        <li><img src="img/E/E7.png" alt="jeg" />E7</li>
-        <li><img src="img/E/E8.png" alt="jeg" />E8</li>
-        <li><img src="img/E/E9.png" alt="jeg" />E9</li>
-        <li><img src="img/E/E10.png" alt="jeg" />E10</li>
-        <li><img src="img/E/E11.png" alt="jeg" />E11</li>
-        <li><img src="img/E/E12.png" alt="jeg" />E12</li>
-        <li><img src="img/E/E13.png" alt="jeg" />E13</li>
-        <li><img src="img/E/E14.png" alt="jeg" />E14</li>
-        <li><img src="img/E/E15.png" alt="jeg" />E15</li>
-        <li><img src="img/E/E16.png" alt="jeg" />E16</li>
-        <li><img src="img/E/E17.png" alt="jeg" />E17</li>
-        <li><img src="img/E/E18.png" alt="jeg" />E18</li>
-        <li><img src="img/E/E19.png" alt="jeg" />E19</li>
-        <li><img src="img/E/E20.png" alt="jeg" />E20</li>
-        <li><img src="img/E/E21.png" alt="jeg" />E21</li>
-        <li><img src="img/E/E22.png" alt="jeg" />E22</li>
-      </ul>
-    </div>
-    <div class="column-1 overflow" id="six">
-      <ul>
-        <li><img src="img/F/F1.png" alt="jeg" />F1</li>
-        <li><img src="img/F/F2.png" alt="jeg" />F2</li>
-        <li><img src="img/F/F3.png" alt="jeg" />F3</li>
-        <li><img src="img/F/F4.png" alt="jeg" />F4</li>
-        <li><img src="img/F/F5.png" alt="jeg" />F5</li>
-        <li><img src="img/F/F6.png" alt="jeg" />F6</li>
-        <li><img src="img/F/F7.png" alt="jeg" />F7</li>
-      </ul>
-    </div>
-    </div> <!-- Lower Content ends-->
-    <div id="lower-content" class="p2">
-      <div class="column-1-k" id="one-k">
-        <ul>
-          <li>A</li>
-          <li>G</li>
-          <li>M</li>
-          <li>S</li>
-          <li>Z</li>
-        </ul>
-      </div>
-      <div class="column-1-k" id="two-k">
-        <ul>
-          <li>B</li>
-          <li>H</li>
-          <li>N</li>
-          <li>T</li>
-          <li>Æ</li>
-        </ul>
-      </div>
-      <div class="column-1-k" id="three-k">
-        <ul>
-          <li>C</li>
-          <li>I</li>
-          <li>O</li>
-          <li>U</li>
-          <li>Ø</li>
-        </ul>
-      </div>
-      <div class="column-1-k" id="four-k">
-        <ul>
-          <li>D</li>
-          <li>J</li>
-          <li>P</li>
-          <li>V</li>
-          <li>Å</li>
-        </ul>
-      </div>
-      <div class="column-1-k" id="five-k">
-        <ul>
-          <li>E</li>
-          <li>K</li>
-          <li>Q</li>
-          <li>X</li>
-          <li class="space-btn"><img src="img/space-btn.png" alt="space button" />&nbsp;</li>
-        </ul>
-      </div>
-      <div class="column-1-k" id="six-k">
-        <ul>
-          <li>F</li>
-          <li>L</li>
-          <li>R</li>
-          <li>Y</li>
-          <li class="empty-list"></li>
-        </ul>
-      </div>
-      <div class="column-1-k overflow" id="seven-k">
-        <ul>
-          <li>9</li>
-          <li>8</li>
-          <li>7</li>
-          <li>6</li>
-          <li>5</li>
-          <li>4</li>
-          <li>3</li>
-          <li>2</li>
-          <li>1</li>
-          <li>0</li>
-        </ul>
-      </div>
-      </div> <!-- Lower Content ends-->
-    </div>
-    <div class="hbody">
-      <div id="left-content">
-        <div id="column-1-b">
-          <ul>
-            <li id="ten-b">10</li>
-            <li id="nine-b">9</li>
-            <li id="eight-b">8</li>
-            <li id="seven-b">7</li>
-            <li id="six-b">6</li>
-            <li id="five-b">5</li>
-            <li id="four-b">4</li>
-            <li id="three-b">3</li>
-            <li id="two-b">2</li>
-            <li id="one-b">1</li>
-          </ul>
+      <div class="hbody">
+        <div id="left-content">
+          <div id="column-1-b">
+            <ul>
+              <li id="ten-b">10</li>
+              <li id="nine-b">9</li>
+              <li id="eight-b">8</li>
+              <li id="seven-b">7</li>
+              <li id="six-b">6</li>
+              <li id="five-b">5</li>
+              <li id="four-b">4</li>
+              <li id="three-b">3</li>
+              <li id="two-b">2</li>
+              <li id="one-b">1</li>
+            </ul>
+          </div>
+        </div>
+        <div id="right-content">
+          <canvas id="canvas" width="810" height="727"></canvas>
         </div>
       </div>
-      <div id="right-content">
-        <canvas id="canvas" width="810" height="727"></canvas>
-      </div>
-    </div>
     </div> <!-- Page Wrapper ends-->
   </body>
-</html>
+  </html>
