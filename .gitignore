@@ -1,3 +1,4 @@
 *.cdncache
 *.json
 sftp-settings.*
+*.png
